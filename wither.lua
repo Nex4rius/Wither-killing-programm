@@ -130,9 +130,9 @@ function main()
 --    os.sleep(300)
   else
     placeWither()
+    WaitForNetherStar()
   end
   reset()
-  WaitForNetherStar()
 --  end
 end
 
