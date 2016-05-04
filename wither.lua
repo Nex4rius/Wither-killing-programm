@@ -53,26 +53,17 @@ function checkInventory()
         end
         WitherSkeletonSkullSizeFree = 64 - item.size
       end
-      if WitherSkeletonSkull == 0 then
-        WitherSkeletonSkullSizeFree = 64
-      end
       if "minecraft:soul_sand:0" == name then
         if 4 <= item.size then
           SoulSand = i
         end
         SoulSandSizeFree = 64 - item.size
       end
-      if SoulSand == 0 then
-        WitherSkeletonSkullSizeFree = 64
-      end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if 1 <= item.size then
          WardedGlass = i
         end
         WardedGlassSizeFree = 64 - item.size
-      end
-      if WardedGlass == 0 then
-        WardedGlassSizeFree = 64
       end
     end
   end
@@ -86,6 +77,7 @@ function invRefill()
       if "minecraft:skull:0" == name then
         if WitherSkeletonSkull == 0 then
           r.select(1)
+          WitherSkeletonSkullSizeFree = 64
         else
           r.select(WitherSkeletonSkull)
         end
@@ -94,6 +86,7 @@ function invRefill()
       if "minecraft:soul_sand:0" == name then
         if SoulSand == 0 then
           r.select(1)
+          SoulSandSizeFree = 64
         else
           r.select(SoulSand)
         end
@@ -102,7 +95,9 @@ function invRefill()
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if WardedGlass == 0 then
           r.select(1)
+          WardedGlassSizeFree = 64
         else
+          r.select(WardedGlass)
         end
         inv.suckFromSlot(0, i, WardedGlassSizeFree)
       end
