@@ -63,16 +63,25 @@ function invRefill()
     if item then
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:1" == name then
+        if WitherSkeletonSkull == 0 then
+        else
           r.select(WitherSkeletonSkull)
           suckFromSlot(0, i)
+        end
       end
       if "minecraft:soul_sand:0" == name then
+        if SoulSand == 0 then
+        else
           r.select(SoulSand)
           suckFromSlot(0, i)
+        end
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
+        if WardedGlass == 0 then
+        else
           r.select(WardedGlass)
           suckFromSlot(0, i)
+        end
       end
     end
   end
