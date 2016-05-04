@@ -39,7 +39,20 @@ function exit()
 end
 
 function placeWither()
-  
+  r.select(WitherSkeletonSkull)
+  r.turnLeft()
+  r.place()
+  r.turnAround()
+  r.place()
+  r.down()
+  r.select(SoulSand)
+  r.place()
+  r.turnAround()
+  r.place()
+  r.placeDown()
+  r.()
+  r.placeDown()
+  r.turnRight()
 end
 
 function checkInventory()
