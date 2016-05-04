@@ -58,7 +58,7 @@ function checkInventory()
 end
 
 function invRefill()
-  for i = 1, 9 do
+  for i = 1, inv.getInventorySize(0) do
     checkInterfaceSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
@@ -66,21 +66,21 @@ function invRefill()
         if WitherSkeletonSkull == 0 then
         else
           r.select(WitherSkeletonSkull)
-          suckFromSlot(0, i)
+          inv.suckFromSlot(0, i)
         end
       end
       if "minecraft:soul_sand:0" == name then
         if SoulSand == 0 then
         else
           r.select(SoulSand)
-          suckFromSlot(0, i)
+          inv.suckFromSlot(0, i)
         end
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if WardedGlass == 0 then
         else
           r.select(WardedGlass)
-          suckFromSlot(0, i)
+          inv.suckFromSlot(0, i)
         end
       end
     end
