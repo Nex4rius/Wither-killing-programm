@@ -12,5 +12,6 @@ wget -f "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-program
 
 reboot
 ```
+3) The nether star has to go into a chest infront of the robot because it will wait for the nether star before spawning a new Wither.
 
-3) Profit
+4) Profit
