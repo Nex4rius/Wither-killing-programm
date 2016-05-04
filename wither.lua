@@ -1,4 +1,4 @@
--- Version 1.1
+-- Version 1.2
 
 local component = require("component")
 r = require("robot")
