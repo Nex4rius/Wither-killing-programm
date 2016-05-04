@@ -77,7 +77,6 @@ function invRefill()
       if "minecraft:skull:0" == name then
         if WitherSkeletonSkull == 0 then
           r.select(1)
-          WitherSkeletonSkullSizeFree = 64
         else
           r.select(WitherSkeletonSkull)
         end
@@ -86,7 +85,6 @@ function invRefill()
       if "minecraft:soul_sand:0" == name then
         if SoulSand == 0 then
           r.select(1)
-          SoulSandSizeFree = 64
         else
           r.select(SoulSand)
         end
@@ -95,7 +93,6 @@ function invRefill()
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if WardedGlass == 0 then
           r.select(1)
-          WardedGlassSizeFree = 64
         else
           r.select(WardedGlass)
         end
@@ -107,11 +104,11 @@ end
 
 function reset()
   WitherSkeletonSkull = 0
-  WitherSkeletonSkullSizeFree = 0
+  WitherSkeletonSkullSizeFree = 64
   SoulSand = 0
-  SoulSandSizeFree = 0
+  SoulSandSizeFree = 64
   WardedGlass = 0
-  WardedGlassSizeFree = 0
+  WardedGlassSizeFree = 64
 end
 
 function main()
