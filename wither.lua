@@ -62,7 +62,7 @@ function checkInventory()
     checkSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
-      if "minecraft:skull:0" == name then
+      if "minecraft:skull:1" == name then
         if 3 <= item.size then
           WitherSkeletonSkull = i
         end
@@ -89,7 +89,7 @@ function invRefill()
     checkInterfaceSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
-      if "minecraft:skull:0" == name then
+      if "minecraft:skull:1" == name then
         if WitherSkeletonSkull == 0 then
           r.select(1)
         else
