@@ -95,17 +95,17 @@ end
 
 function main()
 --  while running do
-    checkInventory()
-    invRefill()
-    if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-      os.sleep(300)
-    else
-      enter()
-      placeWither()
-      exit()
---      os.sleep(60)
-    end
-    reset()
+  checkInventory()
+  invRefill()
+  if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
+    os.sleep(300)
+  else
+    enter()
+    placeWither()
+    exit()
+--    os.sleep(60)
+  end
+  reset()
 --  end
 end
  
