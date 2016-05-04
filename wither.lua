@@ -47,17 +47,17 @@ function checkInventory()
     checkSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
-      if "minecraft:skull:1" == name and 3 <= item.size then
+      if "minecraft:skull:0" == name and 3 <= item.size then
         WitherSkeletonSkull = i
-        WitherSkeletonSkullSizeFree = item.size
+        WitherSkeletonSkullSizeFree = r.count(i)
       end
       if "minecraft:soul_sand:0" == name and 4 <= item.size then
         SoulSand = i
-        SoulSandSizeFree = item.size
+        SoulSandSizeFree =r.count(i)
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name and 1 <= item.size then
         WardedGlass = i
-        WardedGlassSizeFree = item.size
+        WardedGlassSizeFree = r.count(i)
       end
     end
   end
@@ -68,7 +68,7 @@ function invRefill()
     checkInterfaceSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
-      if "minecraft:skull:1" == name then
+      if "minecraft:skull:0" == name then
         if WitherSkeletonSkull == 0 then
           r.select(1)
         else
