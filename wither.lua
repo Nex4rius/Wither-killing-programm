@@ -5,6 +5,9 @@ inv = component.inventory_controller
 WitherSkeletonSkull = 0
 SoulSand = 0
 WardedGlass = 0
+WitherSkeletonSkullInterface = 0
+SoulSandInterface = 0
+WardedGlassInterface = 0
 
 function enter()
   r.turnRight()
@@ -57,7 +60,7 @@ function checkInventory()
   end
 end
 
-function checkInterfaceInventory()
+function invRefill()
   for i = 1, 16 do
     checkSlot(i)
     if item then
@@ -65,37 +68,44 @@ function checkInterfaceInventory()
       if "minecraft:skull:1" == name then
         WitherSkeletonSkullInterface = i
         if item then
-          
+          r.select(WitherSkeletonSkull)
+          suckFromSlot(0, WitherSkeletonSkullInterface)
         end
       end
       if "minecraft:soul_sand:0" == name then
         SoulSandInterface = i
+        if item then
+          r.select(SoulSand)
+          suckFromSlot(0, SoulSandInterface)
+        end
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         WardedGlassInterface = i
+        if item then
+          r.select(WardedGlass)
+          suckFromSlot(0, WardedGlassInterface)
+        end
       end
     end
   end
-end
-
-function invRefill()
-  
 end
 
 function reset()
   WitherSkeletonSkull = 0
   SoulSand = 0
   WardedGlass = 0
+  WitherSkeletonSkullInterface = 0
+  SoulSandInterface = 0
+  WardedGlassInterface = 0
 end
 
 function main()
 --  while running do
     checkInventory()
+    invRefill()
     if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-      os.sleep(60)
+      os.sleep(300)
     else
-      checkInterfaceInventory()
-      invRefill()
       enter()
       placeWither()
       exit()
@@ -107,6 +117,10 @@ end
  
 function checkSlot(slot)
   item = inv.getStackInInternalSlot(slot)
+end
+ 
+function checkInterfaceSlot(slot)
+  item = inv.getStackInSlot(slot)
 end
 
 running = true
