@@ -1,7 +1,7 @@
 # Wither killing programm
 OpenComputer robot wither spawner
 
-https://www.youtube.com/watch?v=X6TMbdU_hfY
+https://www.youtube.com/watch?v=Oz2gJnaWIBw&feature=youtu.be&pxtry=3
 
 How to install:
 
