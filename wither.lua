@@ -45,7 +45,7 @@ function checkInventory()
       if "minecraft:skull1" == name and 3 <= item.size then
         WitherSkeletonSkull = i
       end
-      if "minecraft:soul:sand0" == name and 4 <= item.size then
+      if "minecraft:soul_sand0" == name and 4 <= item.size then
         SoulSand = i
       end
       if "Thaumcraft:blockCosmeticOpaque2" == name then
