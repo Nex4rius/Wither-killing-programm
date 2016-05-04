@@ -1,3 +1,4 @@
+local component = require("component")
 r = require("robot")
 
 function enter()
@@ -28,6 +29,26 @@ function exit()
 end
 
 function placeWither()
+  checkInventory()
+  print(WitherSkeletonSkull .. SoulSand .. WardedGlass)
+end
+
+function checkInventory()
+  for i = 1, 16 do
+    checkSlot(i)
+    if item then
+      name = item.name .. item.damage
+      if minecraft:skull1 == name and 3 <= item.size then
+        WitherSkeletonSkull = i
+      end
+      if minecraft:soul:sand0 == name and 4 <= item.size then
+        SoulSand = i
+      end
+      if Thaumcraft:blockCosmeticOpaque2 == name then
+        WardedGlass = i
+      end
+    end
+  end
 end
 
 function main()
@@ -36,6 +57,10 @@ function main()
     placeWither()
     exit()
 --  end
+end
+ 
+function checkSlot(slot)
+  item = component.inventory_controller.getStackInInternalSlot(slot)
 end
 
 running = true
