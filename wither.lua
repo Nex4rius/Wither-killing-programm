@@ -146,7 +146,6 @@ function WaitForNetherStar()
         if "minecraft:nether:star:0" == name then
           r.select(16)
           inv.suckFromSlot(3, i)
-          r.select(i)
           for j = 1, inv.getInventorySize(0) do
             inv.dropIntoSlot(0, j)
           end
