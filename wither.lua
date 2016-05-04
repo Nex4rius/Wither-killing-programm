@@ -47,17 +47,32 @@ function checkInventory()
     checkSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
-      if "minecraft:skull:0" == name and 3 <= item.size then
-        WitherSkeletonSkull = i
-        WitherSkeletonSkullSizeFree = r.space(i)
+      if "minecraft:skull:0" == name then
+        if 3 <= item.size then
+          WitherSkeletonSkull = i
+        end
+        WitherSkeletonSkullSizeFree = 64 - item.size
       end
-      if "minecraft:soul_sand:0" == name and 4 <= item.size then
-        SoulSand = i
-        SoulSandSizeFree = r.space(i)
+      if WitherSkeletonSkull == 0 then
+        WitherSkeletonSkullSizeFree = 64
       end
-      if "Thaumcraft:blockCosmeticOpaque:2" == name and 1 <= item.size then
-        WardedGlass = i
-        WardedGlassSizeFree = r.space(i)
+      if "minecraft:soul_sand:0" == name then
+        if 4 <= item.size then
+          SoulSand = i
+        end
+        SoulSandSizeFree = 64 - item.size
+      end
+      if SoulSand == 0 then
+        WitherSkeletonSkullSizeFree = 64
+      end
+      if "Thaumcraft:blockCosmeticOpaque:2" == name then
+        if 1 <= item.size then
+         WardedGlass = i
+        end
+        WardedGlassSizeFree = 64 - item.size
+      end
+      if WardedGlass == 0 then
+        WardedGlassSizeFree = 64
       end
     end
   end
