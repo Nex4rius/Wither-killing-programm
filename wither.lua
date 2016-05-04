@@ -1,5 +1,6 @@
 local component = require("component")
 r = require("robot")
+inv = component.inventory_controller
 
 WitherSkeletonSkull = 0
 SoulSand = 0
@@ -37,8 +38,7 @@ function exit()
 end
 
 function placeWither()
-  checkInventory()
-  print(WitherSkeletonSkull .. "   " .. SoulSand .. "   " .. WardedGlass)
+  
 end
 
 function checkInventory()
@@ -59,16 +59,33 @@ function checkInventory()
   end
 end
 
+function invRefill()
+  
+end
+
+function reset()
+  WitherSkeletonSkull = 0
+  SoulSand = 0
+  WardedGlass = 0
+end
+
 function main()
 --  while running do
-    enter()
-    placeWither()
-    exit()
+    invRefill()
+    checkInventory()
+    if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
+      os.sleep(60)
+    else
+      enter()
+      placeWither()
+      exit()
+    end
+    reset()
 --  end
 end
  
 function checkSlot(slot)
-  item = component.inventory_controller.getStackInInternalSlot(slot)
+  item = inv.getStackInInternalSlot(slot)
 end
 
 running = true
