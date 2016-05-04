@@ -45,14 +45,14 @@ function checkInventory()
   for i = 1, 16 do
     checkSlot(i)
     if item then
-      name = item.name .. item.damage
-      if "minecraft:skull1" == name and 3 <= item.size then
+      name = item.name .. ":" .. item.damage
+      if "minecraft:skull:1" == name and 3 <= item.size then
         WitherSkeletonSkull = i
       end
-      if "minecraft:soul_sand0" == name and 4 <= item.size then
+      if "minecraft:soul_sand:0" == name and 4 <= item.size then
         SoulSand = i
       end
-      if "Thaumcraft:blockCosmeticOpaque2" == name then
+      if "Thaumcraft:blockCosmeticOpaque:2" == name then
         WardedGlass = i
       end
     end
