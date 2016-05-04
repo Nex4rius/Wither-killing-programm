@@ -25,7 +25,6 @@ end
 
 function exit()
   r.back()
-  r.back()
   r.select(WardedGlass)
   r.place()
   r.turnLeft()
@@ -53,6 +52,9 @@ function placeWither()
   r.up()
   r.placeDown()
   r.turnRight()
+  r.back()
+  r.select(WitherSkeletonSkull)
+  r.place()
 end
 
 function checkInventory()
