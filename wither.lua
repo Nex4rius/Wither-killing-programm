@@ -50,7 +50,7 @@ function placeWither()
   r.turnAround()
   r.place()
   r.placeDown()
-  r.()
+  r.up()
   r.placeDown()
   r.turnRight()
 end
