@@ -5,9 +5,6 @@ inv = component.inventory_controller
 WitherSkeletonSkull = 0
 SoulSand = 0
 WardedGlass = 0
-WitherSkeletonSkullInterface = 0
-SoulSandInterface = 0
-WardedGlassInterface = 0
 
 function enter()
   r.turnRight()
@@ -66,25 +63,16 @@ function invRefill()
     if item then
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:1" == name then
-        WitherSkeletonSkullInterface = i
-        if item then
           r.select(WitherSkeletonSkull)
-          suckFromSlot(0, WitherSkeletonSkullInterface)
-        end
+          suckFromSlot(0, i)
       end
       if "minecraft:soul_sand:0" == name then
-        SoulSandInterface = i
-        if item then
           r.select(SoulSand)
-          suckFromSlot(0, SoulSandInterface)
-        end
+          suckFromSlot(0, i)
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
-        WardedGlassInterface = i
-        if item then
           r.select(WardedGlass)
-          suckFromSlot(0, WardedGlassInterface)
-        end
+          suckFromSlot(0, i)
       end
     end
   end
@@ -94,9 +82,6 @@ function reset()
   WitherSkeletonSkull = 0
   SoulSand = 0
   WardedGlass = 0
-  WitherSkeletonSkullInterface = 0
-  SoulSandInterface = 0
-  WardedGlassInterface = 0
 end
 
 function main()
