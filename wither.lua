@@ -11,7 +11,7 @@ SoulSandSizeFree = 64
 WardedGlass = 0
 WardedGlassSizeFree = 64
 
-function enter()
+function placeWither()
   r.turnRight()
   r.forward()
   r.turnLeft()
@@ -23,23 +23,6 @@ function enter()
   r.use()
   r.forward()
   r.forward()
-end
-
-function exit()
-  r.back()
-  r.select(WardedGlass)
-  r.place()
-  r.turnLeft()
-  r.forward()
-  r.turnLeft()
-  r.forward()
-  r.forward()
-  r.turnLeft()
-  r.forward()
-  r.turnLeft()
-end
-
-function placeWither()
   r.select(WitherSkeletonSkull)
   r.turnLeft()
   r.place()
@@ -57,6 +40,17 @@ function placeWither()
   r.back()
   r.select(WitherSkeletonSkull)
   r.place()
+  r.back()
+  r.select(WardedGlass)
+  r.place()
+  r.turnLeft()
+  r.forward()
+  r.turnLeft()
+  r.forward()
+  r.forward()
+  r.turnLeft()
+  r.forward()
+  r.turnLeft()
 end
 
 function checkInventory()
@@ -135,13 +129,29 @@ function main()
   if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
 --    os.sleep(300)
   else
-    enter()
     placeWither()
-    exit()
---    os.sleep(60)
   end
   reset()
+  WaitForNetherStar()
 --  end
+end
+
+function WaitForNetherStar()
+  wait = true
+  while wait do
+    for i = 1, inv.getInventorySize(0) do
+      checkInterfaceSlot(i)
+      if item then
+        name = item.name .. ":" .. item.damage
+        if "minecraft:nether:star:0" == name then
+          inv.suckFromSlot(3, i, 64)
+          inv.dropIntoSlot(0, i, 64)
+          wait = false
+        end
+      end
+    end
+    os.sleep(30)
+  end
 end
  
 function checkSlot(slot)
