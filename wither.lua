@@ -49,15 +49,15 @@ function checkInventory()
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:0" == name and 3 <= item.size then
         WitherSkeletonSkull = i
-        WitherSkeletonSkullSizeFree = r.count(i)
+        WitherSkeletonSkullSizeFree = r.space(i)
       end
       if "minecraft:soul_sand:0" == name and 4 <= item.size then
         SoulSand = i
-        SoulSandSizeFree =r.count(i)
+        SoulSandSizeFree =r.space(i)
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name and 1 <= item.size then
         WardedGlass = i
-        WardedGlassSizeFree = r.count(i)
+        WardedGlassSizeFree = r.space(i)
       end
     end
   end
