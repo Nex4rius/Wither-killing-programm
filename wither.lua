@@ -3,8 +3,11 @@ r = require("robot")
 inv = component.inventory_controller
 
 WitherSkeletonSkull = 0
+WitherSkeletonSkullSize = 0
 SoulSand = 0
+SoulSandSize = 0
 WardedGlass = 0
+WardedGlassSize = 0
 
 function enter()
   r.turnRight()
@@ -46,12 +49,15 @@ function checkInventory()
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:1" == name and 3 <= item.size then
         WitherSkeletonSkull = i
+        WitherSkeletonSkullSize = item.size
       end
       if "minecraft:soul_sand:0" == name and 4 <= item.size then
         SoulSand = i
+        SoulSandSize = item.size
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name and 1 <= item.size then
         WardedGlass = i
+        WardedGlassSize = item.size
       end
     end
   end
@@ -91,8 +97,11 @@ end
 
 function reset()
   WitherSkeletonSkull = 0
+  WitherSkeletonSkullSize = 0
   SoulSand = 0
+  SoulSandSize = 0
   WardedGlass = 0
+  WardedGlassSize = 0
 end
 
 function main()
