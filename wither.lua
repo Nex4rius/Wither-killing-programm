@@ -58,8 +58,8 @@ function checkInventory()
 end
 
 function invRefill()
-  for i = 1, 16 do
-    checkSlot(i)
+  for i = 1, inv.getInventorySide(0)  do
+    checkInterfaceSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:1" == name then
