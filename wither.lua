@@ -155,8 +155,8 @@ function WaitForNetherStar()
         end
       end
     end
-    os.sleep(30)
   end
+  os.sleep(30)
 end
 
 running = true
