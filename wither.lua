@@ -1,3 +1,5 @@
+-- Version 1.1
+
 local component = require("component")
 r = require("robot")
 inv = component.inventory_controller
