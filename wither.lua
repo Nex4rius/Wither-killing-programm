@@ -143,7 +143,7 @@ function WaitForNetherStar()
       item = inv.getStackInSlot(3, i)
       if item then
         name = item.name .. ":" .. item.damage
-        if "minecraft:nether:star:0" == name then
+        if "minecraft:nether_star:0" == name then
           r.select(16)
           inv.suckFromSlot(3, i)
           for j = 1, inv.getInventorySize(0) do
