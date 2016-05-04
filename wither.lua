@@ -53,7 +53,7 @@ function checkInventory()
       end
       if "minecraft:soul_sand:0" == name and 4 <= item.size then
         SoulSand = i
-        SoulSandSizeFree =r.space(i)
+        SoulSandSizeFree = r.space(i)
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name and 1 <= item.size then
         WardedGlass = i
