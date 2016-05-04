@@ -21,10 +21,8 @@ function enter()
 end
 
 function exit()
-  r.turnAround()
-  r.forward()
-  r.forward()
-  r.turnAround()
+  r.back()
+  r.back()
   r.select(WardedGlass)
   r.place()
   r.turnLeft()
