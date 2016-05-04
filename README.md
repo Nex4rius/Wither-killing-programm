@@ -1,6 +1,8 @@
 # Wither killing programm
 OpenComputer robot wither spawner
 
+https://www.youtube.com/watch?v=X6TMbdU_hfY
+
 How to install:
 
 1) Make an OpenComputer computer with an internet card.
