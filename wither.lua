@@ -138,6 +138,7 @@ end
 
 function WaitForNetherStar()
   wait = true
+  os.sleep(30)
   while wait do
     for i = 1, inv.getInventorySize(3) do
       item = inv.getStackInSlot(3, i)
@@ -155,7 +156,6 @@ function WaitForNetherStar()
       end
     end
   end
-  os.sleep(30)
 end
 
 running = true
