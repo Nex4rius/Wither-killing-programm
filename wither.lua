@@ -123,17 +123,17 @@ function reset()
 end
 
 function main()
---  while running do
+  while running do
   checkInventory()
   invRefill()
   if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
---    os.sleep(300)
+    os.sleep(300)
   else
     placeWither()
     WaitForNetherStar()
   end
   reset()
---  end
+  end
 end
 
 function WaitForNetherStar()
