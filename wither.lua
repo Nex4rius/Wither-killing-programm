@@ -64,24 +64,26 @@ function invRefill()
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:1" == name then
         if WitherSkeletonSkull == 0 then
+          r.select(1)
         else
           r.select(WitherSkeletonSkull)
-          inv.suckFromSlot(0, i)
         end
+        inv.suckFromSlot(0, i)
       end
       if "minecraft:soul_sand:0" == name then
         if SoulSand == 0 then
+          r.select(1)
         else
           r.select(SoulSand)
-          inv.suckFromSlot(0, i)
         end
+        inv.suckFromSlot(0, i)
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if WardedGlass == 0 then
+          r.select(1)
         else
-          r.select(WardedGlass)
-          inv.suckFromSlot(0, i)
         end
+        inv.suckFromSlot(0, i)
       end
     end
   end
@@ -98,7 +100,7 @@ function main()
   checkInventory()
   invRefill()
   if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-    os.sleep(300)
+--    os.sleep(300)
   else
     enter()
     placeWither()
