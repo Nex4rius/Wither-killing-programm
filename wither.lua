@@ -55,7 +55,7 @@ end
 
 function checkInventory()
   for i = 1, 16 do
-    checkSlot(i)
+    item = inv.getStackInInternalSlot(slot)
     if item then
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:1" == name then
@@ -82,7 +82,7 @@ end
 
 function invRefill()
   for i = 1, inv.getInventorySize(0) do
-    checkInterfaceSlot(i)
+    item = inv.getStackInSlot(0, slot)
     if item then
       name = item.name .. ":" .. item.damage
       if "minecraft:skull:1" == name then
@@ -139,27 +139,22 @@ end
 function WaitForNetherStar()
   wait = true
   while wait do
-    for i = 1, inv.getInventorySize(0) do
-      checkInterfaceSlot(i)
+    for i = 1, inv.getInventorySize(3) do
+      item = inv.getStackInSlot(3, slot)
       if item then
         name = item.name .. ":" .. item.damage
         if "minecraft:nether:star:0" == name then
           inv.suckFromSlot(3, i, 64)
-          inv.dropIntoSlot(0, i, 64)
+          for i = 1, inv.getInventorySize(0)
+            inv.dropIntoSlot(0, i, 64)
+          end
           wait = false
+          break
         end
       end
     end
     os.sleep(30)
   end
-end
- 
-function checkSlot(slot)
-  item = inv.getStackInInternalSlot(slot)
-end
- 
-function checkInterfaceSlot(slot)
-  item = inv.getStackInSlot(0, slot)
 end
 
 running = true
