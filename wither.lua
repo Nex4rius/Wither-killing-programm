@@ -3,11 +3,11 @@ r = require("robot")
 inv = component.inventory_controller
 
 WitherSkeletonSkull = 0
-WitherSkeletonSkullSizeFree = 0
+WitherSkeletonSkullSizeFree = 64
 SoulSand = 0
-SoulSandSizeFree = 0
+SoulSandSizeFree = 64
 WardedGlass = 0
-WardedGlassSizeFree = 0
+WardedGlassSizeFree = 64
 
 function enter()
   r.turnRight()
