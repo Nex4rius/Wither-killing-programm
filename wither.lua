@@ -58,7 +58,7 @@ function checkInventory()
 end
 
 function invRefill()
-  for i = 1, inv.getInventorySide(0)  do
+  for i = 1, 9 do
     checkInterfaceSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
@@ -114,7 +114,7 @@ function checkSlot(slot)
 end
  
 function checkInterfaceSlot(slot)
-  item = inv.getStackInSlot(slot)
+  item = inv.getStackInSlot(0, slot)
 end
 
 running = true
