@@ -44,14 +44,35 @@ function checkInventory()
     checkSlot(i)
     if item then
       name = item.name .. ":" .. item.damage
-      if "minecraft:skull:1" == name and 3 <= item.size then
+      if "minecraft:skull:1" == name and 4 <= item.size then
         WitherSkeletonSkull = i
       end
-      if "minecraft:soul_sand:0" == name and 4 <= item.size then
+      if "minecraft:soul_sand:0" == name and 5 <= item.size then
         SoulSand = i
       end
-      if "Thaumcraft:blockCosmeticOpaque:2" == name then
+      if "Thaumcraft:blockCosmeticOpaque:2" == name and 2 <= item.size then
         WardedGlass = i
+      end
+    end
+  end
+end
+
+function checkInterfaceInventory()
+  for i = 1, 16 do
+    checkSlot(i)
+    if item then
+      name = item.name .. ":" .. item.damage
+      if "minecraft:skull:1" == name then
+        WitherSkeletonSkullInterface = i
+        if item then
+          
+        end
+      end
+      if "minecraft:soul_sand:0" == name then
+        SoulSandInterface = i
+      end
+      if "Thaumcraft:blockCosmeticOpaque:2" == name then
+        WardedGlassInterface = i
       end
     end
   end
@@ -69,14 +90,16 @@ end
 
 function main()
 --  while running do
-    invRefill()
     checkInventory()
     if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
       os.sleep(60)
     else
+      checkInterfaceInventory()
+      invRefill()
       enter()
       placeWither()
       exit()
+--      os.sleep(60)
     end
     reset()
 --  end
