@@ -160,7 +160,7 @@ function main()
       invRefill()
       checkInventory()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-        print("Waiting 5min")
+        print("Materials missing waiting 5min")
         os.sleep(300)
       else
         placeWither()
