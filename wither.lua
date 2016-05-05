@@ -1,4 +1,4 @@
--- Version 1.2
+-- Version 1.3
 
 local component = require("component")
 r = require("robot")
@@ -14,7 +14,7 @@ dofile("saveAfterReboot.lua")
 
 function writeSaveFile()
   f = io.open ("saveAfterReboot.lua", "w")
-  f:write('NetherStar = "' .. NetherStar .. '"\n')
+  f:write('NetherStar = ' .. NetherStar .. '\n')
   f:close ()
 end
 
@@ -149,7 +149,7 @@ end
 function WaitForNetherStar()
   wait = true
   print("Wait for Nether Star")
-  os.sleep(30)
+  os.sleep(20)
   while wait do
     for i = 1, inv.getInventorySize(3) do
       item = inv.getStackInSlot(3, i)
