@@ -1,4 +1,4 @@
--- Version 1.4
+-- Version 1.5
 -- by DarknessShadow
 
 local component = require("component")
@@ -180,7 +180,6 @@ end
 function WaitForNetherStar()
   wait = true
   print("Waiting for Nether Star")
-  os.sleep(20)
   while wait do
     os.sleep(5)
     for i = 1, inv.getInventorySize(3) do
