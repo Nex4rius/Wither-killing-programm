@@ -169,6 +169,7 @@ function main()
       print("Nether Stars Collected: " .. NetherStar)
     else
       print("Insert wand into tool slot")
+      print("Waiting 30sec")
       os.sleep(30)
     end
   end
