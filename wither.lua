@@ -1,4 +1,4 @@
--- Version 1.5
+-- Version 1.6
 -- by DarknessShadow
 
 local component = require("component")
@@ -165,9 +165,9 @@ function main()
       else
         placeWither()
         WaitForNetherStar()
+        print("Nether Stars Collected: " .. NetherStar)
       end
       reset()
-      print("Nether Stars Collected: " .. NetherStar)
     else
       print("Insert wand into tool slot")
       print("Waiting 1min")
