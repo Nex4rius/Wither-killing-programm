@@ -180,8 +180,9 @@ end
 function WaitForNetherStar()
   wait = true
   print("Waiting for Nether Star")
-  os.sleep(25)
+  os.sleep(20)
   while wait do
+    os.sleep(5)
     for i = 1, inv.getInventorySize(3) do
       item = inv.getStackInSlot(3, i)
       if item then
