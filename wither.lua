@@ -20,6 +20,7 @@ function writeSaveFile()
 end
 
 function placeWither()
+  print("Spawning Wither")
   r.turnRight()
   r.forward()
   r.turnLeft()
