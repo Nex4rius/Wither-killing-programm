@@ -62,19 +62,19 @@ function checkInventory()
         if 3 <= item.size then
           WitherSkeletonSkull = i
         end
-        WitherSkeletonSkullSizeFree = 64 - item.size
+        WitherSkeletonSkullSizeFree = 6 - item.size
       end
       if "minecraft:soul_sand:0" == name then
         if 4 <= item.size then
           SoulSand = i
         end
-        SoulSandSizeFree = 64 - item.size
+        SoulSandSizeFree = 8 - item.size
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if 1 <= item.size then
          WardedGlass = i
         end
-        WardedGlassSizeFree = 64 - item.size
+        WardedGlassSizeFree = 2 - item.size
       end
     end
   end
