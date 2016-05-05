@@ -133,6 +133,7 @@ function main()
   while running do
   checkInventory()
   invRefill()
+  checkInventory()
   if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
     print("Wait 5min")
     os.sleep(300)
