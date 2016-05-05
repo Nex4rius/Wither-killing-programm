@@ -1,4 +1,5 @@
--- Version 1.3
+-- Version 1.4
+-- by DarknessShadow
 
 local component = require("component")
 r = require("robot")
@@ -58,6 +59,28 @@ function placeWither()
   r.turnLeft()
   r.forward()
   r.turnLeft()
+end
+
+function checkWand()
+  item = inv.getStackInInternalSlot(13)
+  r.select(13)
+  if item then
+    if item.name == "Thaumcraft:WandCasting" then
+      inv.equip()
+      return true
+    end
+  else
+    inv.equip()
+    item = inv.getStackInInternalSlot(13)
+    if item then
+      if item.name == "Thaumcraft:WandCasting" then
+        inv.equip()
+        return true
+      else
+        return false
+      end
+    end
+  end
 end
 
 function checkInventory()
@@ -131,18 +154,23 @@ end
 
 function main()
   while running do
-  checkInventory()
-  invRefill()
-  checkInventory()
-  if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-    print("Wait 5min")
-    os.sleep(300)
-  else
-    placeWither()
-    WaitForNetherStar()
-  end
-  reset()
-  print("Nether Stars Collected: " .. NetherStar)
+    if checkWand() == true then
+      checkInventory()
+      invRefill()
+      checkInventory()
+      if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
+        print("Wait 5min")
+        os.sleep(300)
+      else
+        placeWither()
+        WaitForNetherStar()
+      end
+      reset()
+      print("Nether Stars Collected: " .. NetherStar)
+    else
+      print("Insert wand into tool slot")
+      os.sleep(30)
+    end
   end
 end
 
