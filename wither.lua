@@ -160,7 +160,7 @@ function main()
       invRefill()
       checkInventory()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-        print("Materials missing waiting 5min 6000Ticks")
+        print("Materials missing waiting 5min (6000Ticks)")
         os.sleep(300)
       else
         placeWither()
@@ -170,7 +170,7 @@ function main()
       reset()
     else
       print("Insert wand into tool slot")
-      print("Waiting 1min 1200Ticks")
+      print("Waiting 1min (1200Ticks)")
       os.sleep(60)
     end
     print("")
