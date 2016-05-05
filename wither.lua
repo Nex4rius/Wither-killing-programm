@@ -172,6 +172,7 @@ function main()
       print("Waiting 1min")
       os.sleep(60)
     end
+    print("")
   end
 end
 
