@@ -159,7 +159,7 @@ function main()
       invRefill()
       checkInventory()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-        print("Wait 5min")
+        print("Waiting 5min")
         os.sleep(300)
       else
         placeWither()
@@ -176,7 +176,7 @@ end
 
 function WaitForNetherStar()
   wait = true
-  print("Wait for Nether Star")
+  print("Waiting for Nether Star")
   os.sleep(20)
   while wait do
     for i = 1, inv.getInventorySize(3) do
