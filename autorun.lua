@@ -4,4 +4,4 @@ os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-kil
 print("")
 os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/saveAfterReboot.lua' saveAfterReboot.lua")
 print("")
---dofile("wither.lua")
+dofile("wither.lua")
