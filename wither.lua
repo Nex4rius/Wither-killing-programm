@@ -5,11 +5,11 @@ r = require("robot")
 inv = component.inventory_controller
 
 WitherSkeletonSkull = 0
-WitherSkeletonSkullSizeFree = 64
+WitherSkeletonSkullSizeFree = 6
 SoulSand = 0
-SoulSandSizeFree = 64
+SoulSandSizeFree = 8
 WardedGlass = 0
-WardedGlassSizeFree = 64
+WardedGlassSizeFree = 2
 
 function placeWither()
   r.turnRight()
