@@ -2,8 +2,6 @@
 -- by DarknessShadow
 
 local component = require("component")
-local generator = require("generator")
-local chunkloader = require("chunkloader")
 r = require("robot")
 inv = component.inventory_controller
 
@@ -25,12 +23,14 @@ end
 
 function chunkloader(change)
   if component.isAvailable("chunkloader") then
+    chunkloader = require("chunkloader")
     chunkloader.setActive(change)
   end
 end
 
 function generator()
   if component.isAvailable("generator") then
+    generator = require("generator")
     r.select(fuel)
     generator.insert()
   end
