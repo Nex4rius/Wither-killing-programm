@@ -1,9 +1,9 @@
--- Version 1.8
+-- Version 1.9
 -- by DarknessShadow
 
 local component = require("component")
 r = require("robot")
-inv = component.inventory_controller
+term = require("term")
 
 WitherSkeletonSkull = 0
 WitherSkeletonSkullSizeFree = 6
@@ -17,17 +17,24 @@ chunkloaderstatus = false
 generatorstatus = false
 dofile("saveAfterReboot.lua")
 
+print("Checking Components\n")
+
 if component.isAvailable("chunkloader") then
   c = component.chunkloader
   chunkloaderstatus = true
+  print("ChunkLoader ok (optional)")
 else
   chunkloaderstatus = false
+  print("ChunkLoader Missing (optional)")
 end
+
 if component.isAvailable("generator") then
   g = component.generator
   generatorstatus = true
+  print("Generator ok (optional)")
 else
   generatorstatus = false
+  print("Generator Missing (optional)")
 end
 
 function writeSaveFile()
@@ -257,4 +264,12 @@ end
 
 running = true
 
-main()
+if component.isAvailable("inventory_controller") then
+  inv = component.inventory_controller
+  print("Inventory Controller ok")
+  os.sleep(1)
+  term.clear()
+  main()
+else
+  print("Inventory Controller Missing")
+end
