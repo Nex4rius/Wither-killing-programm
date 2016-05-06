@@ -1,4 +1,4 @@
--- Version 1.6
+-- Version 1.7
 -- by DarknessShadow
 
 local component = require("component")
@@ -11,12 +11,29 @@ SoulSand = 0
 SoulSandSizeFree = 8
 WardedGlass = 0
 WardedGlassSizeFree = 2
+fuel = 0
+fuelSizeFree = 4
 dofile("saveAfterReboot.lua")
 
 function writeSaveFile()
   f = io.open ("saveAfterReboot.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
   f:close ()
+end
+
+function chunkloader(change)
+  if component.isAvailable("chunkloader") then
+    chunkloader = require("chunkloader")
+    chunkloader.setActive(change)
+  end
+end
+
+function generator()
+  if component.isAvailable("generator") then
+    generator = require("generator")
+    r.select(fuel)
+    generator.insert()
+  end
 end
 
 function placeWither()
@@ -107,6 +124,12 @@ function checkInventory()
         end
         WardedGlassSizeFree = 2 - item.size
       end
+      if "Railcraft:fuel.coke:0" == name or "minecraft:coal" == item.name or "Thaumcraft:ItemResource:0" == name then
+        if 1 <= item.size then
+         fuel = i
+        end
+        fuelSizeFree = 4 - item.size
+      end
     end
   end
 end
@@ -140,6 +163,14 @@ function invRefill()
         end
         inv.suckFromSlot(0, i, WardedGlassSizeFree)
       end
+      if "Railcraft:fuel.coke:0" == name or "minecraft:coal" == item.name or "Thaumcraft:ItemResource:0" == name then
+        if fuel == 0 then
+          r.select(1)
+        else
+          r.select(fuel)
+        end
+        inv.suckFromSlot(0, i, fuelSizeFree)
+      end
     end
   end
 end
@@ -151,6 +182,8 @@ function reset()
   SoulSandSizeFree = 64
   WardedGlass = 0
   WardedGlassSizeFree = 64
+  fuel = 0
+  fuelSizeFree = 4
 end
 
 function main()
@@ -159,13 +192,15 @@ function main()
       checkInventory()
       invRefill()
       checkInventory()
+      generator()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
         print("Materials missing waiting 5min (6000 Ticks)")
         os.sleep(300)
       else
+        chunkloader(true)
         placeWither()
         WaitForNetherStar()
-        print("Nether Stars Collected: " .. NetherStar)
+        chunkloader(false)
       end
       reset()
     else
@@ -191,6 +226,7 @@ function WaitForNetherStar()
           inv.suckFromSlot(3, i)
           NetherStar = NetherStar + 1
           writeSaveFile()
+          print("Nether Stars Collected: " .. NetherStar)
           for j = 1, inv.getInventorySize(0) do
             inv.dropIntoSlot(0, j)
           end
