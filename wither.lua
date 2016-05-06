@@ -52,7 +52,11 @@ function generator()
 end
 
 function placeWither()
-  print("Spawning Wither")
+  if chunkloaderstatus == true then
+    print("Spawning Wither - Chunkloader On")
+  else
+    print("Spawning Wither")
+  end
   r.turnRight()
   r.forward()
   r.turnLeft()
@@ -209,7 +213,7 @@ function main()
       checkInventory()
       generator()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-        print("Materials missing waiting 5min (6000 Ticks)")
+        print("Materials missing waiting 5min - Chunkloader Off")
         os.sleep(300)
       else
         chunkloader(true)
@@ -220,7 +224,7 @@ function main()
       reset()
     else
       print("Insert wand into tool slot")
-      print("Waiting 1min (1200 Ticks)")
+      print("Waiting 1min - Chunkloader Off")
       os.sleep(60)
     end
     print("")
