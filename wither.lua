@@ -266,8 +266,6 @@ running = true
 if component.isAvailable("inventory_controller") then
   inv = component.inventory_controller
   print("Inventory Controller ok")
-  os.sleep(1)
-  os.execute("clear")
   main()
 else
   print("Inventory Controller Missing")
