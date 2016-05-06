@@ -31,7 +31,6 @@ if component.isAvailable("generator") then
 else
   generatorstatus = false
 end
-end
 
 function writeSaveFile()
   f = io.open ("saveAfterReboot.lua", "w")
