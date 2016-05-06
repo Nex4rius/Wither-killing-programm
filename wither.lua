@@ -3,7 +3,6 @@
 
 local component = require("component")
 r = require("robot")
-term = require("term")
 
 WitherSkeletonSkull = 0
 WitherSkeletonSkullSizeFree = 6
@@ -268,7 +267,7 @@ if component.isAvailable("inventory_controller") then
   inv = component.inventory_controller
   print("Inventory Controller ok")
   os.sleep(1)
-  term.clear()
+  os.execute("clear")
   main()
 else
   print("Inventory Controller Missing")
