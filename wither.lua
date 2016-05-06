@@ -1,9 +1,8 @@
--- Version 1.8
+-- Version 1.9
 -- by DarknessShadow
 
 local component = require("component")
 r = require("robot")
-inv = component.inventory_controller
 
 WitherSkeletonSkull = 0
 WitherSkeletonSkullSizeFree = 6
@@ -17,17 +16,24 @@ chunkloaderstatus = false
 generatorstatus = false
 dofile("saveAfterReboot.lua")
 
+print("Checking Components\n")
+
 if component.isAvailable("chunkloader") then
   c = component.chunkloader
   chunkloaderstatus = true
+  print("ChunkLoader ok (optional)")
 else
   chunkloaderstatus = false
+  print("ChunkLoader Missing (optional)")
 end
+
 if component.isAvailable("generator") then
   g = component.generator
   generatorstatus = true
+  print("Generator ok (optional)")
 else
   generatorstatus = false
+  print("Generator Missing (optional)")
 end
 
 function writeSaveFile()
@@ -211,7 +217,11 @@ function main()
       checkInventory()
       generator()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-        print("Materials missing waiting 5min - Chunkloader Off")
+        if chunkloaderstatus == true then
+          print("Materials missing waiting 5min - Chunkloader Off")
+        else
+          print("Materials missing waiting 5min")
+        end
         os.sleep(300)
       else
         chunkloader(true)
@@ -222,7 +232,11 @@ function main()
       reset()
     else
       print("Insert wand into tool slot")
-      print("Waiting 1min - Chunkloader Off")
+      if chunkloaderstatus == true then
+        print("Waiting 1min - Chunkloader Off")
+      else
+        print("Waiting 1min")
+      end
       os.sleep(60)
     end
     print("")
@@ -257,4 +271,10 @@ end
 
 running = true
 
-main()
+if component.isAvailable("inventory_controller") then
+  inv = component.inventory_controller
+  print("Inventory Controller ok\n\n")
+  main()
+else
+  print("Inventory Controller Missing")
+end
