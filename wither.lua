@@ -3,8 +3,8 @@
 
 local component = require("component")
 r = require("robot")
-chunkloader = require("chunkloader")
-generator = require("generator")
+--chunkloader = require("chunkloader")
+--generator = require("generator")
 inv = component.inventory_controller
 
 WitherSkeletonSkull = 0
@@ -20,13 +20,13 @@ generatorstatus = false
 dofile("saveAfterReboot.lua")
 
 if component.isAvailable("chunkloader") then
-  cl = component.getPrimary("chunkloader")
+  c = component.chunkloader
   chunkloaderstatus = true
 else
   chunkloaderstatus = false
 end
 if component.isAvailable("generator") then
-  gen = component.getPrimary("generator")
+  g = component.generator
   generatorstatus = true
 else
   generatorstatus = false
@@ -41,14 +41,14 @@ end
 
 function chunkloader(change)
   if chunkloaderstatus == true then
-    cl.setActive(change)
+    c.setActive(change)
   end
 end
 
 function generator()
   if generatorstatus == true then
     r.select(fuel)
-    gen.insert()
+    g.insert()
   end
 end
 
