@@ -3,8 +3,6 @@
 
 local component = require("component")
 r = require("robot")
---chunkloader = require("chunkloader")
---generator = require("generator")
 inv = component.inventory_controller
 
 WitherSkeletonSkull = 0
