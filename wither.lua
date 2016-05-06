@@ -17,7 +17,6 @@ dofile("saveAfterReboot.lua")
 
 if component.isAvailable("chunkloader") then
   chunkloader = component.getPrimary("chunkloader")
-  chunkloader.setActive(change)
 end
 if component.isAvailable("generator") then
   generator = component.getPrimary("generator")
