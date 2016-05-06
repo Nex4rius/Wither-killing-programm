@@ -217,7 +217,11 @@ function main()
       checkInventory()
       generator()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
-        print("Materials missing waiting 5min - Chunkloader Off")
+        if chunkloaderstatus == true then
+          print("Materials missing waiting 5min - Chunkloader Off")
+        else
+          print("Materials missing waiting 5min")
+        end
         os.sleep(300)
       else
         chunkloader(true)
@@ -228,7 +232,11 @@ function main()
       reset()
     else
       print("Insert wand into tool slot")
-      print("Waiting 1min - Chunkloader Off")
+      if chunkloaderstatus == true then
+        print("Waiting 1min - Chunkloader Off")
+      else
+        print("Waiting 1min")
+      end
       os.sleep(60)
     end
     print("")
