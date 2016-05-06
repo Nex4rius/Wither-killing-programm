@@ -1,4 +1,4 @@
--- Version 1.7
+-- Version 1.8
 -- by DarknessShadow
 
 local component = require("component")
@@ -15,6 +15,14 @@ fuel = 0
 fuelSizeFree = 4
 dofile("saveAfterReboot.lua")
 
+if component.isAvailable("chunkloader") then
+  chunkloader = component.getPrimary("chunkloader")
+  chunkloader.setActive(change)
+end
+if component.isAvailable("generator") then
+  generator = component.getPrimary("generator")
+end
+
 function writeSaveFile()
   f = io.open ("saveAfterReboot.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
@@ -23,14 +31,12 @@ end
 
 function chunkloader(change)
   if component.isAvailable("chunkloader") then
-    chunkloader = require("chunkloader")
     chunkloader.setActive(change)
   end
 end
 
 function generator()
   if component.isAvailable("generator") then
-    generator = require("generator")
     r.select(fuel)
     generator.insert()
   end
