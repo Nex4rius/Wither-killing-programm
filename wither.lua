@@ -200,7 +200,6 @@ function main()
         chunkloader(true)
         placeWither()
         WaitForNetherStar()
-        print("Nether Stars Collected: " .. NetherStar)
         chunkloader(false)
       end
       reset()
@@ -227,6 +226,7 @@ function WaitForNetherStar()
           inv.suckFromSlot(3, i)
           NetherStar = NetherStar + 1
           writeSaveFile()
+          print("Nether Stars Collected: " .. NetherStar)
           for j = 1, inv.getInventorySize(0) do
             inv.dropIntoSlot(0, j)
           end
