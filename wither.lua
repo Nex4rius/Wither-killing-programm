@@ -21,18 +21,18 @@ function CheckComponents()
   if component.isAvailable("chunkloader") then
     c = component.chunkloader
     chunkloaderstatus = true
-    print("ChunkLoader ok (optional)")
+    print("- ChunkLoader ok (optional)")
   else
     chunkloaderstatus = false
-    print("ChunkLoader Missing (optional)")
+    print("- ChunkLoader Missing (optional)")
   end
   if component.isAvailable("generator") then
     g = component.generator
     generatorstatus = true
-    print("Generator ok (optional)")
+    print("- Generator ok (optional)")
   else
     generatorstatus = false
-    print("Generator Missing (optional)")
+    print("- Generator Missing (optional)")
   end
 end
 
@@ -277,8 +277,8 @@ CheckComponents()
 
 if component.isAvailable("inventory_controller") then
   inv = component.inventory_controller
-  print("Inventory Controller ok\n\n")
+  print("- Inventory Controller ok\n\n")
   main()
 else
-  print("Inventory Controller Missing")
+  print("- Inventory Controller Missing")
 end
