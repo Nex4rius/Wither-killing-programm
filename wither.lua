@@ -1,4 +1,4 @@
--- Version 1.9.1
+-- Version 1.9.2
 -- by DarknessShadow
 
 local component = require("component")
