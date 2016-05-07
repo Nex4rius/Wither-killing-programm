@@ -50,6 +50,7 @@ end
 
 function generator()
   if generatorstatus == true then
+    print(fuel)
     item = inv.getStackInInternalSlot(fuel)
     if item then
       r.select(fuel)
@@ -239,7 +240,6 @@ function WaitForNetherStar()
 end
 
 function main()
-  CheckComponents()
   while running do
     if checkWand() == true then
       checkInventory()
@@ -274,6 +274,8 @@ function main()
 end
 
 running = true
+
+CheckComponents()
 
 if component.isAvailable("inventory_controller") then
   inv = component.inventory_controller
