@@ -1,4 +1,4 @@
--- Version 1.9
+-- Version 1.9.1
 -- by DarknessShadow
 
 local component = require("component")
@@ -16,24 +16,24 @@ chunkloaderstatus = false
 generatorstatus = false
 dofile("saveAfterReboot.lua")
 
-print("Checking Components\n")
-
-if component.isAvailable("chunkloader") then
-  c = component.chunkloader
-  chunkloaderstatus = true
-  print("ChunkLoader ok (optional)")
-else
-  chunkloaderstatus = false
-  print("ChunkLoader Missing (optional)")
-end
-
-if component.isAvailable("generator") then
-  g = component.generator
-  generatorstatus = true
-  print("Generator ok (optional)")
-else
-  generatorstatus = false
-  print("Generator Missing (optional)")
+function CheckComponents()
+  print("Checking Components\n")
+  if component.isAvailable("chunkloader") then
+    c = component.chunkloader
+    chunkloaderstatus = true
+    print("ChunkLoader ok (optional)")
+  else
+    chunkloaderstatus = false
+    print("ChunkLoader Missing (optional)")
+  end
+  if component.isAvailable("generator") then
+    g = component.generator
+    generatorstatus = true
+    print("Generator ok (optional)")
+  else
+    generatorstatus = false
+    print("Generator Missing (optional)")
+  end
 end
 
 function writeSaveFile()
@@ -50,8 +50,11 @@ end
 
 function generator()
   if generatorstatus == true then
-    r.select(fuel)
-    g.insert()
+    item = inv.getStackInInternalSlot(fuel)
+    if item then
+      r.select(fuel)
+      g.insert()
+    end
   end
 end
 
@@ -209,7 +212,34 @@ function reset()
   fuelSizeFree = 4
 end
 
+function WaitForNetherStar()
+  wait = true
+  print("Waiting for Nether Star")
+  while wait do
+    os.sleep(5)
+    for i = 1, inv.getInventorySize(3) do
+      item = inv.getStackInSlot(3, i)
+      if item then
+        name = item.name .. ":" .. item.damage
+        if "minecraft:nether_star:0" == name then
+          r.select(16)
+          inv.suckFromSlot(3, i)
+          NetherStar = NetherStar + 1
+          print("Nether Stars Collected: " .. NetherStar)
+          writeSaveFile()
+          for j = 1, inv.getInventorySize(0) do
+            inv.dropIntoSlot(0, j)
+          end
+          wait = false
+          break
+        end
+      end
+    end
+  end
+end
+
 function main()
+  CheckComponents()
   while running do
     if checkWand() == true then
       checkInventory()
@@ -240,32 +270,6 @@ function main()
       os.sleep(60)
     end
     print("")
-  end
-end
-
-function WaitForNetherStar()
-  wait = true
-  print("Waiting for Nether Star")
-  while wait do
-    os.sleep(5)
-    for i = 1, inv.getInventorySize(3) do
-      item = inv.getStackInSlot(3, i)
-      if item then
-        name = item.name .. ":" .. item.damage
-        if "minecraft:nether_star:0" == name then
-          r.select(16)
-          inv.suckFromSlot(3, i)
-          NetherStar = NetherStar + 1
-          print("Nether Stars Collected: " .. NetherStar)
-          writeSaveFile()
-          for j = 1, inv.getInventorySize(0) do
-            inv.dropIntoSlot(0, j)
-          end
-          wait = false
-          break
-        end
-      end
-    end
   end
 end
 
