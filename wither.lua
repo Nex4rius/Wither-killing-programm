@@ -50,9 +50,7 @@ end
 
 function generator()
   if generatorstatus == true then
-    print(fuel)
-    item = inv.getStackInInternalSlot(fuel)
-    if item then
+    if fuel > 0 then
       r.select(fuel)
       g.insert()
     end
