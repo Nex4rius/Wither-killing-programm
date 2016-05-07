@@ -6,8 +6,10 @@ if component.isAvailable("internet") then
   print("")
   os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/saveAfterReboot.lua' saveAfterReboot.lua")
   os.execute("clear")
+  print("Checking Components\n")
   print("- Internet Card        ok (optional)")
 else
+  print("Checking Components\n")
   print("- Internet Card        Missing (optional)")
 end
 dofile("wither.lua")
