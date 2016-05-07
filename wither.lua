@@ -1,4 +1,4 @@
--- Version 1.9.2
+-- Version 1.9.3
 -- by DarknessShadow
 
 local component = require("component")
@@ -21,18 +21,18 @@ function CheckComponents()
   if component.isAvailable("chunkloader") then
     c = component.chunkloader
     chunkloaderstatus = true
-    print("- ChunkLoader ok (optional)")
+    print("- ChunkLoader          ok (optional)")
   else
     chunkloaderstatus = false
-    print("- ChunkLoader Missing (optional)")
+    print("- ChunkLoader          Missing (optional)")
   end
   if component.isAvailable("generator") then
     g = component.generator
     generatorstatus = true
-    print("- Generator ok (optional)")
+    print("- Generator            ok (optional)")
   else
     generatorstatus = false
-    print("- Generator Missing (optional)")
+    print("- Generator            Missing (optional)")
   end
 end
 
