@@ -17,7 +17,6 @@ generatorstatus = false
 dofile("saveAfterReboot.lua")
 
 function CheckComponents()
-  print("Checking Components\n")
   if component.isAvailable("chunkloader") then
     c = component.chunkloader
     chunkloaderstatus = true
