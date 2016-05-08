@@ -249,12 +249,12 @@ function main()
         else
           print("Materials missing waiting 5min")
         end
+        chunkloader(false)
         os.sleep(300)
       else
         chunkloader(true)
         placeWither()
         WaitForNetherStar()
-        chunkloader(false)
       end
       reset()
     else
@@ -264,6 +264,7 @@ function main()
       else
         print("Waiting 1min")
       end
+      chunkloader(false)
       os.sleep(60)
     end
     print("")
