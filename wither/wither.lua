@@ -11,10 +11,10 @@ fuel = 0
 fuelSizeFree = 4
 chunkloaderstatus = false
 generatorstatus = false
-dofile("saveAfterReboot.lua")
+dofile("wither/saveAfterReboot.lua")
 
 function writeSaveFile()
-  f = io.open ("saveAfterReboot.lua", "w")
+  f = io.open ("wither/saveAfterReboot.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
   f:close ()
 end
