@@ -8,19 +8,21 @@ r = require("robot")
 
 function checkComponents()
   print("Checking Components\n")
-  if component.isAvailable("redstone") then
-    print("- Redstone Card        ok (optional)")
-    r = component.getPrimary("redstone")
-    redst = true
+  if component.isAvailable("chunkloader") then
+    c = component.chunkloader
+    chunkloaderstatus = true
+    print("- ChunkLoader          ok (optional)")
   else
-    print("- Redstone Card        Missing (optional)")
-    r = nil
-    redst = false
+    chunkloaderstatus = false
+    print("- ChunkLoader          Missing (optional)")
   end
-  if gpu.maxResolution() > 50 then
-    print("- GPU Tier2+           ok")
+  if component.isAvailable("generator") then
+    g = component.generator
+    generatorstatus = true
+    print("- Generator            ok (optional)")
   else
-    print("- GPU Tier2+           Missing")
+    generatorstatus = false
+    print("- Generator            Missing (optional)")
   end
   if component.isAvailable("internet") then
     print("- Internet             ok (optional)")
@@ -29,12 +31,12 @@ function checkComponents()
     print("- Internet             Missing (optional)")
     internet = false
   end
-  if component.isAvailable("stargate") then
-    print("- Stargate             ok\n")
-    sg = component.getPrimary("stargate")
+  if component.isAvailable("inventory_controller") then
+    print("- Inventory Controller ok\n")
+    inv = component.inventory_controller
     return true
   else
-    print("- Stargate             Missing\n")
+    print("- Inventory Controller Missing\n")
     return false
   end
 end
