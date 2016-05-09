@@ -10,9 +10,9 @@ How to install:
 2) copy / paste commands
 
 ```lua
-wget -f "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/autorun.lua" autorun.lua
+wget -f "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/test/install.lua" this
 
-reboot
+this
 ```
 3) The nether star has to go into a chest infront of the robot because it will wait for the nether star before spawning a new Wither.
 
