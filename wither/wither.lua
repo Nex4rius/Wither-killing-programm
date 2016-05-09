@@ -215,6 +215,7 @@ function WaitForNetherStar()
 end
 
 function main()
+  print("")
   while running do
     if checkWand() == true then
       checkInventory()
