@@ -1,4 +1,4 @@
-version = "2.0.2"
+version = "2.0.3"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -78,6 +78,5 @@ if checkComponents() == true then
       end
     end
   end
-  print("\nLoading...")
   dofile("wither/wither.lua")
 end
