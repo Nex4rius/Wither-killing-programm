@@ -42,45 +42,20 @@ function checkComponents()
 end
 
 function update()
-  fs.makeDirectory("/stargate")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/autorun.lua' autorun.lua")
+  fs.makeDirectory("/wither")
+  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/autorun.lua' autorun.lua")
   print("")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/stargate/control.lua' stargate/control.lua")
+  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/wither.lua' wither/wither.lua")
   print("")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/stargate/compat.lua' stargate/compat.lua")
+  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/check.lua' wither/check.lua")
   print("")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/stargate/config.lua' stargate/config.lua")
+  os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/saveAfterReboot.lua' wither/saveAfterReboot.lua")
   print("")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/stargate/check.lua' stargate/check.lua")
-  print("")
-  os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/stargate/addresses.lua' stargate/addresses.lua")
-  print("")
-  os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/stargate/saveAfterReboot.lua' stargate/saveAfterReboot.lua")
-  print("")
-  f = io.open ("stargate/addresses.lua", "r")
-  addressRead = true
-  leseLaenge = 1000
-  while addressRead == true do
-    readAddresses = f:read(leseLaenge)
-    AdressesLength = string.len(readAddresses)
-    if AdressesLength == leseLaenge then
-      leseLaenge = leseLaenge * 2
-    else
-      addressRead = false
-    end
-  end
-  f:close ()
-  if string.sub(readAddresses, AdressesLength, AdressesLength) == " " then
-    f = io.open ("stargate/addresses.lua", "a")
-    f:seek ("end", -1)
-    f:write("")
-    f:close ()
-  end
   os.execute("reboot")
 end
 
 function checkServerVersion()
-  os.execute("wget -fQ 'https://raw.githubusercontent.com/DarknessShadow/Stargate-Programm/master/stargate/version.txt' version.txt")
+  os.execute("wget -fQ 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/version.txt' version.txt")
   f = io.open ("version.txt", "r")
   serverVersion = f:read(5)
   f:close ()
