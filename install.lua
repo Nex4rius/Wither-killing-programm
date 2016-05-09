@@ -1,0 +1,12 @@
+fs = require("filesystem")
+fs.makeDirectory("/wither")
+os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/autorun.lua' autorun.lua")
+print("")
+os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/check.lua' stargate/check.lua")
+print("")
+os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/wither.lua' stargate/wither.lua")
+print("")
+os.execute("del -v this.lua")
+print("\n")
+install = true
+os.execute("autorun.lua")
