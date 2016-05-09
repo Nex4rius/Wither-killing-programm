@@ -1,8 +1,5 @@
--- Version 1.9.3
+-- Programm for spawning a Wither
 -- by DarknessShadow
-
-local component = require("component")
-r = require("robot")
 
 WitherSkeletonSkull = 0
 WitherSkeletonSkullSizeFree = 6
@@ -15,25 +12,6 @@ fuelSizeFree = 4
 chunkloaderstatus = false
 generatorstatus = false
 dofile("saveAfterReboot.lua")
-
-function CheckComponents()
-  if component.isAvailable("chunkloader") then
-    c = component.chunkloader
-    chunkloaderstatus = true
-    print("- ChunkLoader          ok (optional)")
-  else
-    chunkloaderstatus = false
-    print("- ChunkLoader          Missing (optional)")
-  end
-  if component.isAvailable("generator") then
-    g = component.generator
-    generatorstatus = true
-    print("- Generator            ok (optional)")
-  else
-    generatorstatus = false
-    print("- Generator            Missing (optional)")
-  end
-end
 
 function writeSaveFile()
   f = io.open ("saveAfterReboot.lua", "w")
@@ -273,12 +251,4 @@ end
 
 running = true
 
-CheckComponents()
-
-if component.isAvailable("inventory_controller") then
-  inv = component.inventory_controller
-  print("- Inventory Controller ok\n\n")
-  main()
-else
-  print("- Inventory Controller Missing")
-end
+main()
