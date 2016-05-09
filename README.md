@@ -10,7 +10,7 @@ How to install:
 2) copy / paste commands
 
 ```lua
-wget -f "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/test/install.lua" this
+wget -f "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/install.lua" this
 
 this
 ```
