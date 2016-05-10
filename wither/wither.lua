@@ -16,12 +16,13 @@ dofile("wither/saveAfterReboot.lua")
 function writeSaveFile()
   f = io.open ("wither/saveAfterReboot.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
+  f:write('Sprache = "' .. Sprache .. '"\n')
   f:close ()
 end
 
-function chunkloader(change)
+function chunkloader(zustand)
   if chunkloaderstatus == true then
-    c.setActive(change)
+    c.setActive(zustand)
   end
 end
 
