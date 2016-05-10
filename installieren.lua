@@ -6,6 +6,8 @@ os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-kil
 print("")
 os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/wither.lua' wither/wither.lua")
 print("")
+os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/sprache.lua' wither/sprache.lua")
+print("")
 os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/saveAfterReboot.lua' wither/saveAfterReboot.lua")
 print("")
 os.execute("del -v installieren.lua")
