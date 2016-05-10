@@ -68,7 +68,7 @@ end
 
 if checkComponents() == true then
   if internet == true then
-    print(derzeitigeVersion .. version .. verfügbareVersion .. checkServerVersion())
+    print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion())
     if version == checkServerVersion() then
     elseif installieren == nil then
       print(aktualisierenFrage)
