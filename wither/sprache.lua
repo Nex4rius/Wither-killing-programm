@@ -31,7 +31,7 @@ else
   inventory_controllerOK    = "- Inventory Controller ok\n"
   inventory_controllerFehlt = "- Inventory Controller fehlt\n"
   derzeitigeVersion         = "\nDerzeitige Version:    "
-  verfügbareVersion         = "\nVerfuegbare Version:   "
+  verfuegbareVersion        = "\nVerfuegbare Version:   "
   aktualisierenFrage        = "\nAktualisieren? ja/nein\n"
   aktualisierenJa           = "\nAktualisieren: Ja\n"
   aktualisierenNein         = "\nAntwort: "
