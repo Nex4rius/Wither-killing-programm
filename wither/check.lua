@@ -1,4 +1,4 @@
-version = "2.0.8"
+version = "2.0.9"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -7,7 +7,24 @@ fs = require("filesystem")
 r = require("robot")
 
 dofile("wither/sicherNachNeustart.lua")
+
+if Sprache == "" or Sprache == nil then
+  print("Sprache? / Language? Deutsch / English")
+  antwortFrageSprache = io.read()
+  if antwortFrageSprache == "deutsch" or antwortFrageSprache == "Deutsch" or antwortFrageSprache == "english" or antwortFrageSprache == "English" then
+    Sprache = antwortFrageSprache
+    writeSaveFile()
+  end
+end
+
 dofile("wither/sprache.lua")
+
+function writeSaveFile()
+  f = io.open ("wither/sicherNachNeustart.lua", "w")
+  f:write('NetherStar = ' .. NetherStar .. '\n')
+  f:write('Sprache = "' .. Sprache .. '" -- Deutsch / English\n')
+  f:close ()
+end
 
 function checkKomponenten()
   print(pruefeKomponenten)
