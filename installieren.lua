@@ -10,5 +10,5 @@ os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killin
 print("")
 os.execute("del -v installieren.lua")
 print("\n")
-install = true
+installieren = true
 os.execute("autorun.lua")
