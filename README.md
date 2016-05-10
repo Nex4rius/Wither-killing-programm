@@ -17,3 +17,5 @@ installieren
 3) The nether star has to go into a chest infront of the robot because it will wait for the nether star before spawning a new Wither.
 
 4) Profit
+
+Change https://github.com/DarknessShadow/Wither-killing-programm/blob/master/wither/sicherNachNeustart.lua#L2 if you dont want to have it in german.
