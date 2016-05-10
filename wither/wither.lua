@@ -15,7 +15,7 @@ generatorstatus = false
 function writeSaveFile()
   f = io.open ("wither/sicherNachNeustart.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
-  f:write('Sprache = "' .. Sprache .. '"\n')
+  f:write('Sprache = "' .. Sprache .. '" -- Deutsch / English\n')
   f:close ()
 end
 
