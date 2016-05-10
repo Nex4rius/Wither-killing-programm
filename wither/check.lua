@@ -49,7 +49,7 @@ function update()
   print("")
   os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/check.lua' wither/check.lua")
   print("")
-  os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/saveAfterReboot.lua' wither/saveAfterReboot.lua")
+  os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/sicherNachNeustart.lua' wither/sicherNachNeustart.lua")
   print("")
   os.execute("reboot")
 end
