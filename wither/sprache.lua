@@ -1,4 +1,4 @@
-if sprache == "english" then
+if sprache == "english" or sprache == "English" then
   chunkloaderOK             = "- ChunkLoader          ok (optional)"
   chunkloaderFehlt          = "- ChunkLoader          missing (optional)"
   generatorOK               = "- Generator            ok (optional)"
@@ -7,6 +7,11 @@ if sprache == "english" then
   InternetFehlt             = "- Internet             missing (optional)"
   inventory_controllerOK    = "- Inventory Controller ok\n"
   inventory_controllerFehlt = "- Inventory Controller missing\n"
+  derzeitigeVersion         = "\nCurrect Version:       "
+  verfügbareVersion         = "\nAvailable Version:     "
+  aktualisierenFrage        = "\nUpdate? yes/no\n"
+  aktualisierenJa           = "\nUpdate: yes\n"
+  aktualisierenNein         = "\nAnswer: "
 else
   chunkloaderOK             = "- ChunkLoader          ok (optional)"
   chunkloaderFehlt          = "- ChunkLoader          fehlt (optional)"
@@ -16,4 +21,9 @@ else
   InternetFehlt             = "- Internet             fehlt (optional)"
   inventory_controllerOK    = "- Inventory Controller ok\n"
   inventory_controllerFehlt = "- Inventory Controller fehlt\n"
+  derzeitigeVersion         = "\nDerzeitige Version:    "
+  verfügbareVersion         = "\nVerfügbare Version:    "
+  aktualisierenFrage        = "\nAktualisieren? ja/nein\n"
+  aktualisierenJa           = "\nAktualisieren: Ja\n"
+  aktualisierenNein         = "\nAntwort: "
 end
