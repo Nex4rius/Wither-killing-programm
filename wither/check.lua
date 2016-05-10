@@ -6,6 +6,9 @@ event = require("event")
 fs = require("filesystem")
 r = require("robot")
 
+dofile("wither/sicherNachNeustart.lua")
+dofile("wither/sprache.lua")
+
 function checkComponents()
   print("Checking Components\n")
   if component.isAvailable("chunkloader") then
