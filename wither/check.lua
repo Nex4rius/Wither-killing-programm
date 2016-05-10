@@ -1,4 +1,4 @@
-version = "2.0.7"
+version = "2.0.8"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -51,6 +51,8 @@ function update()
   os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/wither.lua' wither/wither.lua")
   print("")
   os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/check.lua' wither/check.lua")
+  print("")
+  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/sprache.lua' wither/sprache.lua")
   print("")
   os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/sicherNachNeustart.lua' wither/sicherNachNeustart.lua")
   print("")
