@@ -36,9 +36,9 @@ end
 
 function placeWither()
   if chunkloaderstatus == true then
-    print("Spawning Wither - Chunkloader On")
+    print(spawnWitherChunkloaderAn)
   else
-    print("Spawning Wither")
+    print(spawnWither)
   end
   r.turnRight()
   r.forward()
@@ -190,7 +190,7 @@ end
 
 function WaitForNetherStar()
   wait = true
-  print("Waiting for Nether Star")
+  print(warteNetherStar)
   while wait do
     os.sleep(5)
     for i = 1, inv.getInventorySize(3) do
@@ -201,7 +201,7 @@ function WaitForNetherStar()
           r.select(16)
           inv.suckFromSlot(3, i)
           NetherStar = NetherStar + 1
-          print("Nether Stars Collected: " .. NetherStar)
+          print(AnzahlNetherStar .. NetherStar)
           writeSaveFile()
           for j = 1, inv.getInventorySize(0) do
             inv.dropIntoSlot(0, j)
@@ -224,9 +224,9 @@ function main()
       generator()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
         if chunkloaderstatus == true then
-          print("Materials missing waiting 5min - Chunkloader Off")
+          print(materialFehltMitChunk)
         else
-          print("Materials missing waiting 5min")
+          print(materialFehlt)
         end
         chunkloader(false)
         os.sleep(300)
@@ -237,11 +237,11 @@ function main()
       end
       reset()
     else
-      print("Insert wand into tool slot")
+      print(ZauberstabFehlt)
       if chunkloaderstatus == true then
-        print("Waiting 1min - Chunkloader Off")
+        print(ZauberstabFehltwarteChunk)
       else
-        print("Waiting 1min")
+        print(ZauberstabFehltwarte)
       end
       chunkloader(false)
       os.sleep(60)
