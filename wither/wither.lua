@@ -1,34 +1,34 @@
--- Programm for spawning a Wither
--- by DarknessShadow
+-- Programm zum spawnen eines Wither
+-- von DarknessShadow
 
 WitherSkeletonSkull = 0
-WitherSkeletonSkullSizeFree = 6
+WitherSkeletonSkullPlatz = 6
 SoulSand = 0
-SoulSandSizeFree = 8
+SoulSandPlatz = 8
 WardedGlass = 0
-WardedGlassSizeFree = 2
-fuel = 0
-fuelSizeFree = 4
+WardedGlassPlatz = 2
+Treibstoff = 0
+TreibstoffPlatz = 4
 chunkloaderstatus = false
 generatorstatus = false
-dofile("wither/saveAfterReboot.lua")
 
 function writeSaveFile()
-  f = io.open ("wither/saveAfterReboot.lua", "w")
+  f = io.open ("wither/sicherNachNeustart.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
+  f:write('Sprache = "' .. Sprache .. '" -- Deutsch / English\n')
   f:close ()
 end
 
-function chunkloader(change)
+function chunkloader(zustand)
   if chunkloaderstatus == true then
-    c.setActive(change)
+    c.setActive(zustand)
   end
 end
 
 function generator()
   if generatorstatus == true then
-    if fuel > 0 then
-      r.select(fuel)
+    if Treibstoff > 0 then
+      r.select(Treibstoff)
       g.insert()
     end
   end
@@ -36,9 +36,9 @@ end
 
 function placeWither()
   if chunkloaderstatus == true then
-    print("Spawning Wither - Chunkloader On")
+    print(spawnWitherChunkloaderAn)
   else
-    print("Spawning Wither")
+    print(spawnWither)
   end
   r.turnRight()
   r.forward()
@@ -112,25 +112,25 @@ function checkInventory()
         if 3 <= item.size then
           WitherSkeletonSkull = i
         end
-        WitherSkeletonSkullSizeFree = 6 - item.size
+        WitherSkeletonSkullPlatz = 6 - item.size
       end
       if "minecraft:soul_sand:0" == name then
         if 4 <= item.size then
           SoulSand = i
         end
-        SoulSandSizeFree = 8 - item.size
+        SoulSandPlatz = 8 - item.size
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if 1 <= item.size then
          WardedGlass = i
         end
-        WardedGlassSizeFree = 2 - item.size
+        WardedGlassPlatz = 2 - item.size
       end
       if "Railcraft:fuel.coke:0" == name or "minecraft:coal" == item.name or "Thaumcraft:ItemResource:0" == name then
         if 1 <= item.size then
-         fuel = i
+         Treibstoff = i
         end
-        fuelSizeFree = 4 - item.size
+        TreibstoffPlatz = 4 - item.size
       end
     end
   end
@@ -147,7 +147,7 @@ function invRefill()
         else
           r.select(WitherSkeletonSkull)
         end
-        inv.suckFromSlot(0, i, WitherSkeletonSkullSizeFree)
+        inv.suckFromSlot(0, i, WitherSkeletonSkullPlatz)
       end
       if "minecraft:soul_sand:0" == name then
         if SoulSand == 0 then
@@ -155,7 +155,7 @@ function invRefill()
         else
           r.select(SoulSand)
         end
-        inv.suckFromSlot(0, i, SoulSandSizeFree)
+        inv.suckFromSlot(0, i, SoulSandPlatz)
       end
       if "Thaumcraft:blockCosmeticOpaque:2" == name then
         if WardedGlass == 0 then
@@ -163,15 +163,15 @@ function invRefill()
         else
           r.select(WardedGlass)
         end
-        inv.suckFromSlot(0, i, WardedGlassSizeFree)
+        inv.suckFromSlot(0, i, WardedGlassPlatz)
       end
       if "Railcraft:fuel.coke:0" == name or "minecraft:coal" == item.name or "Thaumcraft:ItemResource:0" == name then
-        if fuel == 0 then
+        if Treibstoff == 0 then
           r.select(1)
         else
-          r.select(fuel)
+          r.select(Treibstoff)
         end
-        inv.suckFromSlot(0, i, fuelSizeFree)
+        inv.suckFromSlot(0, i, TreibstoffPlatz)
       end
     end
   end
@@ -179,18 +179,18 @@ end
 
 function reset()
   WitherSkeletonSkull = 0
-  WitherSkeletonSkullSizeFree = 64
+  WitherSkeletonSkullPlatz = 64
   SoulSand = 0
-  SoulSandSizeFree = 64
+  SoulSandPlatz = 64
   WardedGlass = 0
-  WardedGlassSizeFree = 64
-  fuel = 0
-  fuelSizeFree = 4
+  WardedGlassPlatz = 64
+  Treibstoff = 0
+  TreibstoffPlatz = 4
 end
 
 function WaitForNetherStar()
   wait = true
-  print("Waiting for Nether Star")
+  print(warteNetherStar)
   while wait do
     os.sleep(5)
     for i = 1, inv.getInventorySize(3) do
@@ -201,7 +201,7 @@ function WaitForNetherStar()
           r.select(16)
           inv.suckFromSlot(3, i)
           NetherStar = NetherStar + 1
-          print("Nether Stars Collected: " .. NetherStar)
+          print(AnzahlNetherStar .. NetherStar)
           writeSaveFile()
           for j = 1, inv.getInventorySize(0) do
             inv.dropIntoSlot(0, j)
@@ -224,9 +224,9 @@ function main()
       generator()
       if WitherSkeletonSkull == 0 or SoulSand == 0 or WardedGlass == 0 then
         if chunkloaderstatus == true then
-          print("Materials missing waiting 5min - Chunkloader Off")
+          print(materialFehltMitChunk)
         else
-          print("Materials missing waiting 5min")
+          print(materialFehlt)
         end
         chunkloader(false)
         os.sleep(300)
@@ -237,11 +237,11 @@ function main()
       end
       reset()
     else
-      print("Insert wand into tool slot")
+      print(ZauberstabFehlt)
       if chunkloaderstatus == true then
-        print("Waiting 1min - Chunkloader Off")
+        print(ZauberstabFehltwarteChunk)
       else
-        print("Waiting 1min")
+        print(ZauberstabFehltwarte)
       end
       chunkloader(false)
       os.sleep(60)
