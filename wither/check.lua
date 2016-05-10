@@ -10,7 +10,7 @@ dofile("wither/sicherNachNeustart.lua")
 dofile("wither/sprache.lua")
 
 function checkComponents()
-  print(prüfeComponenten)
+  print(pruefeComponenten)
   if component.isAvailable("chunkloader") then
     c = component.chunkloader
     chunkloaderstatus = true
