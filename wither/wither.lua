@@ -1,4 +1,4 @@
--- Programm for spawning a Wither
+-- Programm zum spawnen eines Wither
 -- by DarknessShadow
 
 WitherSkeletonSkull = 0
