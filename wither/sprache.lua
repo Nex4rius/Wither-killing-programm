@@ -1,5 +1,5 @@
 if Sprache == "english" or Sprache == "English" then
-  pruefeComponenten         = "Checking Components\n"
+  pruefeKomponenten         = "Checking Components\n"
   chunkloaderOK             = "- ChunkLoader          ok (optional)"
   chunkloaderFehlt          = "- ChunkLoader          missing (optional)"
   generatorOK               = "- Generator            ok (optional)"
@@ -23,7 +23,7 @@ if Sprache == "english" or Sprache == "English" then
   ZauberstabFehltwarteChunk = "Waiting 1min - Chunkloader Off"
   ZauberstabFehltwarte      = "Waiting 1min"
 else
-  pruefeComponenten         = "Pruefe Komponenten\n"
+  pruefeKomponenten         = "Pruefe Komponenten\n"
   chunkloaderOK             = "- ChunkLoader          ok (optional)"
   chunkloaderFehlt          = "- ChunkLoader          fehlt (optional)"
   generatorOK               = "- Generator            ok (optional)"
