@@ -1,2 +1,2 @@
 NetherStar = 0
-Sprache = "Deutsch"
+Sprache = "Deutsch" -- Deutsch / English
