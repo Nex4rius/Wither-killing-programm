@@ -9,8 +9,8 @@ r = require("robot")
 dofile("wither/sicherNachNeustart.lua")
 dofile("wither/sprache.lua")
 
-function checkComponents()
-  print(pruefeComponenten)
+function checkKomponenten()
+  print(pruefeKomponenten)
   if component.isAvailable("chunkloader") then
     c = component.chunkloader
     chunkloaderstatus = true
@@ -66,7 +66,7 @@ function checkServerVersion()
   return serverVersion
 end
 
-if checkComponents() == true then
+if checkKomponenten() == true then
   if internet == true then
     print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion())
     if version == checkServerVersion() then
