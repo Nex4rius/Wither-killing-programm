@@ -23,7 +23,7 @@ if Sprache == "english" or Sprache == "English" then
   ZauberstabFehltwarteChunk = "Waiting 1min - Chunkloader Off"
   ZauberstabFehltwarte      = "Waiting 1min"
 else
-  pruefeComponenten         = "Pruefe Componenten\n"
+  pruefeComponenten         = "Pruefe Komponenten\n"
   chunkloaderOK             = "- ChunkLoader          ok (optional)"
   chunkloaderFehlt          = "- ChunkLoader          fehlt (optional)"
   generatorOK               = "- Generator            ok (optional)"
