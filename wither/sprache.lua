@@ -8,7 +8,7 @@ if Sprache == "english" or Sprache == "English" then
   inventory_controllerOK    = "- Inventory Controller ok\n"
   inventory_controllerFehlt = "- Inventory Controller missing\n"
   derzeitigeVersion         = "\nCurrect Version:       "
-  verfügbareVersion         = "\nAvailable Version:     "
+  verfuegbareVersion        = "\nAvailable Version:     "
   aktualisierenFrage        = "\nUpdate? yes/no\n"
   aktualisierenJa           = "\nUpdate: yes\n"
   aktualisierenNein         = "\nAnswer: "
