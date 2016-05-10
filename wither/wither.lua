@@ -11,10 +11,10 @@ fuel = 0
 fuelSizeFree = 4
 chunkloaderstatus = false
 generatorstatus = false
-dofile("wither/saveAfterReboot.lua")
+dofile("wither/sicherNachNeustart.lua")
 
 function writeSaveFile()
-  f = io.open ("wither/saveAfterReboot.lua", "w")
+  f = io.open ("wither/sicherNachNeustart.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
   f:write('Sprache = "' .. Sprache .. '"\n')
   f:close ()
