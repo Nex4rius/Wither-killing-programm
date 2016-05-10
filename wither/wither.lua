@@ -1,5 +1,5 @@
 -- Programm zum spawnen eines Wither
--- by DarknessShadow
+-- von DarknessShadow
 
 WitherSkeletonSkull = 0
 WitherSkeletonSkullPlatz = 6
