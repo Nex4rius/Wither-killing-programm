@@ -1,4 +1,4 @@
-if sprache == "english" or sprache == "English" then
+if Sprache == "english" or Sprache == "English" then
   chunkloaderOK             = "- ChunkLoader          ok (optional)"
   chunkloaderFehlt          = "- ChunkLoader          missing (optional)"
   generatorOK               = "- Generator            ok (optional)"
