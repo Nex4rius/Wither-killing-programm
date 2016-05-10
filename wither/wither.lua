@@ -11,7 +11,6 @@ fuel = 0
 fuelSizeFree = 4
 chunkloaderstatus = false
 generatorstatus = false
-dofile("wither/sicherNachNeustart.lua")
 
 function writeSaveFile()
   f = io.open ("wither/sicherNachNeustart.lua", "w")
