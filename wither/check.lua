@@ -60,7 +60,7 @@ end
 function checkServerVersion()
   os.execute("wget -fQ 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/version.txt' version.txt")
   f = io.open ("version.txt", "r")
-  serverVersion = f:read(10)
+  serverVersion = f:read(5)
   f:close ()
   os.execute("del version.txt")
   return serverVersion
