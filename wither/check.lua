@@ -13,8 +13,11 @@ if Sprache == "" or Sprache == nil then
   antwortFrageSprache = io.read()
   if antwortFrageSprache == "deutsch" or antwortFrageSprache == "Deutsch" or antwortFrageSprache == "english" or antwortFrageSprache == "English" then
     Sprache = antwortFrageSprache
-    writeSaveFile()
+  else
+    print("\nUnbekannte Eingabe\nStandardeinstellung = deutsch")
+    Sprache = "Deutsch"
   end
+  writeSaveFile()
 end
 
 dofile("wither/sprache.lua")
