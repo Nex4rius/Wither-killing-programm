@@ -27,13 +27,14 @@ if Sprache == "" or Sprache == nil then
     Sprache = "Deutsch"
   end
   writeSaveFile()
+  print("")
 end
 
 dofile("wither/sprache.lua")
 
 
 function checkKomponenten()
-  print("\n" .. pruefeKomponenten)
+  print(pruefeKomponenten)
   if component.isAvailable("chunkloader") then
     c = component.chunkloader
     chunkloaderstatus = true
