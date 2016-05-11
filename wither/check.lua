@@ -1,4 +1,4 @@
-version = "2.1.6"
+version = "2.1.7"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -94,24 +94,37 @@ function checkServerVersion()
   f:close ()
   os.execute("del version.txt")
   if serverVersion == nil then
-    serverVersion = "Error"
+    serverVersion = "<ERROR>"
   end
   return serverVersion
 end
 
+function checkBetaServerVersion()
+  Pfad = serverAddresse .. versionTyp
+  os.execute("wget -fQ " .. Pfad .. "wither/version.txt betaVersion.txt")
+  f = io.open ("betaVersion.txt", "r")
+  betaServerVersion = f:read(5)
+  f:close ()
+  os.execute("del betaVersion.txt")
+  if betaServerVersion == nil then
+    betaServerVersion = "<ERROR>"
+  end
+  return betaServerVersion
+end
+
 if checkKomponenten() == true then
   if internet == true then
-    print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion())
-    if version == checkServerVersion() then
+    print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion() .. betaVersion .. checkBetaServerVersion())
+    if version == checkServerVersion() and version == checkBetaServerVersion() then
     elseif installieren == nil then
       print(aktualisierenFrage)
       antwortFrage = io.read()
       if antwortFrage == "ja" or antwortFrage == "j" or antwortFrage == "yes" or antwortFrage == "y" then
         print(aktualisierenJa)
         update()
-      elseif antwortFrage == "test" then
-        versionTyp = "test/"
-        print("Aktualisieren zur Testversion")
+      elseif antwortFrage == "test" or antwortFrage == "beta" then
+        versionTyp = "beta/"
+        print(aktualisierenBeta)
         update()
       else
         print(aktualisierenNein .. antwortFrage)
