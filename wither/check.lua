@@ -93,6 +93,9 @@ function checkServerVersion()
   serverVersion = f:read(5)
   f:close ()
   os.execute("del version.txt")
+  if serverVersion == nil then
+    serverVersion = "Error"
+  end
   return serverVersion
 end
 
