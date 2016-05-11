@@ -116,6 +116,7 @@ if checkKomponenten() == true then
   if internet == true then
     print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion())
     if checkServerVersion() == checkBetaServerVersion() then
+    else
       print(betaVersion .. checkBetaServerVersion())
     end
     if version == checkServerVersion() and version == checkBetaServerVersion() then
