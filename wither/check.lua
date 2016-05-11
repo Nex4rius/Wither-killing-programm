@@ -7,6 +7,8 @@ fs = require("filesystem")
 r = require("robot")
 chunkloaderstatus = false
 generatorstatus = false
+serverAddresse = "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/"
+versionTyp = "master/"
 
 dofile("wither/sicherNachNeustart.lua")
 
@@ -70,21 +72,22 @@ end
 
 function update()
   fs.makeDirectory("/wither")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/autorun.lua' autorun.lua")
+  Pfad = serverAddresse .. versionTyp
+  os.execute("wget -f " .. Pfad .. "autorun.lua autorun.lua")
   print("")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/wither.lua' wither/wither.lua")
+  os.execute("wget -f " .. Pfad .. "wither/wither.lua wither/wither.lua")
   print("")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/check.lua' wither/check.lua")
+  os.execute("wget -f " .. Pfad .. "wither/check.lua wither/check.lua")
   print("")
-  os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/sprache.lua' wither/sprache.lua")
+  os.execute("wget -f " .. Pfad .. "wither/sprache.lua wither/sprache.lua")
   print("")
-  os.execute("wget 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/sicherNachNeustart.lua' wither/sicherNachNeustart.lua")
+  os.execute("wget " .. Pfad .. "wither/sicherNachNeustart.lua wither/sicherNachNeustart.lua")
   print("")
   os.execute("reboot")
 end
 
 function checkServerVersion()
-  os.execute("wget -fQ 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/version.txt' version.txt")
+  os.execute("wget -fQ " .. serverAddresse .. versionTyp .. "wither/version.txt' version.txt")
   f = io.open ("version.txt", "r")
   serverVersion = f:read(5)
   f:close ()
