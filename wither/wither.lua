@@ -156,13 +156,15 @@ function invRefill()
         end
         inv.suckFromSlot(0, i, WardedGlassPlatz)
       end
-      if "Railcraft:fuel.coke:0" == name or "minecraft:coal" == item.name or "Thaumcraft:ItemResource:0" == name then
-        if Treibstoff == 0 then
-          r.select(1)
-        else
-          r.select(Treibstoff)
+      if generatorstatus == true then
+        if "Railcraft:fuel.coke:0" == name or "minecraft:coal" == item.name or "Thaumcraft:ItemResource:0" == name then
+          if Treibstoff == 0 then
+            r.select(1)
+          else
+            r.select(Treibstoff)
+          end
+          inv.suckFromSlot(0, i, TreibstoffPlatz)
         end
-        inv.suckFromSlot(0, i, TreibstoffPlatz)
       end
     end
   end
