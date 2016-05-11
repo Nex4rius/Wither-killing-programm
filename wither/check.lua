@@ -1,4 +1,4 @@
-version = "2.1.8"
+version = "2.2.0"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -116,6 +116,7 @@ if checkKomponenten() == true then
   if internet == true then
     print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion())
     if checkServerVersion() == checkBetaServerVersion() then
+    else
       print(betaVersion .. checkBetaServerVersion())
     end
     if version == checkServerVersion() and version == checkBetaServerVersion() then
