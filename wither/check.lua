@@ -1,4 +1,4 @@
-version = "2.1.4"
+version = "2.1.5"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -87,7 +87,8 @@ function update()
 end
 
 function checkServerVersion()
-  os.execute("wget -fQ " .. serverAddresse .. versionTyp .. "wither/version.txt' version.txt")
+  Pfad = serverAddresse .. versionTyp
+  os.execute("wget -fQ " .. Pfad .. "wither/version.txt' version.txt")
   f = io.open ("version.txt", "r")
   serverVersion = f:read(5)
   f:close ()
