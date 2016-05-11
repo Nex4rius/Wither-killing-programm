@@ -1,4 +1,4 @@
-version = "2.1.0"
+version = "2.1.1"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -21,7 +21,7 @@ if Sprache == "" or Sprache == nil then
   if antwortFrageSprache == "deutsch" or antwortFrageSprache == "Deutsch" or antwortFrageSprache == "english" or antwortFrageSprache == "English" then
     Sprache = antwortFrageSprache
   else
-    print("\nUnbekannte Eingabe\nStandardeinstellung = deutsch\n")
+    print("\nUnbekannte Eingabe\nStandardeinstellung = deutsch")
     Sprache = "Deutsch"
   end
   writeSaveFile()
@@ -31,7 +31,7 @@ dofile("wither/sprache.lua")
 
 
 function checkKomponenten()
-  print(pruefeKomponenten)
+  print("\n" .. pruefeKomponenten)
   if component.isAvailable("chunkloader") then
     c = component.chunkloader
     chunkloaderstatus = true
