@@ -1,4 +1,4 @@
-version = "2.1.3"
+version = "2.1.4"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -104,6 +104,10 @@ if checkKomponenten() == true then
       antwortFrage = io.read()
       if antwortFrage == "ja" or antwortFrage == "j" or antwortFrage == "yes" or antwortFrage == "y" then
         print(aktualisierenJa)
+        update()
+      elseif antwortFrage == "test" then
+        versionTyp = "test/"
+        print("Aktualisieren zur Testversion")
         update()
       else
         print(aktualisierenNein .. antwortFrage)
