@@ -101,11 +101,11 @@ end
 
 function checkBetaServerVersion()
   Pfad = serverAddresse .. versionTyp
-  os.execute("wget -fQ " .. Pfad .. "wither/version.txt version.txt")
-  f = io.open ("version.txt", "r")
+  os.execute("wget -fQ " .. Pfad .. "wither/version.txt betaVersion.txt")
+  f = io.open ("betaVersion.txt", "r")
   betaServerVersion = f:read(5)
   f:close ()
-  os.execute("del version.txt")
+  os.execute("del betaVersion.txt")
   if betaServerVersion == nil then
     betaServerVersion = "<ERROR>"
   end
@@ -124,7 +124,7 @@ if checkKomponenten() == true then
         update()
       elseif antwortFrage == "test" or antwortFrage == "beta" then
         versionTyp = "beta/"
-        print("Aktualisieren: Betaversion")
+        print(aktualisierenBeta)
         update()
       else
         print(aktualisierenNein .. antwortFrage)
