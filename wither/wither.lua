@@ -19,6 +19,8 @@ function chunkloader(zustand)
 end
 
 function generator()
+  print(generatorstatus)
+  print(Treibstoff)
   if generatorstatus == true then
     if Treibstoff > 0 then
       r.select(Treibstoff)
