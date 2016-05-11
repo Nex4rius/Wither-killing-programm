@@ -1,4 +1,4 @@
-version = "2.1.2"
+version = "2.1.3"
 component = require("component")
 sides = require("sides")
 term = require("term")
