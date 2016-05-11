@@ -5,6 +5,8 @@ term = require("term")
 event = require("event")
 fs = require("filesystem")
 r = require("robot")
+chunkloaderstatus = false
+generatorstatus = false
 
 dofile("wither/sicherNachNeustart.lua")
 
