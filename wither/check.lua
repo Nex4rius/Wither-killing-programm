@@ -1,4 +1,4 @@
-version = "2.1.7"
+version = "2.1.8"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -100,7 +100,7 @@ function checkServerVersion()
 end
 
 function checkBetaServerVersion()
-  Pfad = serverAddresse .. versionTyp
+  Pfad = serverAddresse .. "beta/"
   os.execute("wget -fQ " .. Pfad .. "wither/version.txt betaVersion.txt")
   f = io.open ("betaVersion.txt", "r")
   betaServerVersion = f:read(5)
@@ -114,7 +114,10 @@ end
 
 if checkKomponenten() == true then
   if internet == true then
-    print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion() .. betaVersion .. checkBetaServerVersion())
+    print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion())
+    if checkServerVersion() == checkBetaServerVersion() then
+      print(betaVersion .. checkBetaServerVersion())
+    end
     if version == checkServerVersion() and version == checkBetaServerVersion() then
     elseif installieren == nil then
       print(aktualisierenFrage)
