@@ -1,4 +1,4 @@
-version = "2.2.0"
+version = "2.2.1"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -12,7 +12,7 @@ versionTyp = "master/"
 
 dofile("wither/sicherNachNeustart.lua")
 
-function writeSaveFile()
+function schreibSicherungsdatei()
   f = io.open ("wither/sicherNachNeustart.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
   f:write('Sprache = "' .. Sprache .. '" -- Deutsch / English\n')
@@ -22,17 +22,17 @@ end
 if Sprache == "" or Sprache == nil then
   print("Sprache? / Language? Deutsch / English\n")
   antwortFrageSprache = io.read()
-  if antwortFrageSprache == "deutsch" or antwortFrageSprache == "Deutsch" or antwortFrageSprache == "english" or antwortFrageSprache == "English" then
-    Sprache = antwortFrageSprache
+  if string.lower(antwortFrageSprache) == "deutsch" or string.lower(antwortFrageSprache) == "english" then
+    Sprache = string.lower(antwortFrageSprache)
   else
     print("\nUnbekannte Eingabe\nStandardeinstellung = deutsch")
-    Sprache = "Deutsch"
+    Sprache = "deutsch"
   end
-  writeSaveFile()
+  schreibSicherungsdatei()
   print("")
 end
 
-dofile("wither/sprache.lua")
+dofile("wither/sprache/" .. Sprache .. ".lua")
 
 
 function checkKomponenten()
