@@ -1,5 +1,5 @@
 fs = require("filesystem")
-fs.makeDirectory("/wither")
+fs.makeDirectory("/wither/sprache")
 os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/autorun.lua' autorun.lua")
 print("")
 os.execute("wget -f 'https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/master/wither/check.lua' wither/check.lua")
