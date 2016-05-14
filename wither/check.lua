@@ -9,6 +9,7 @@ chunkloaderstatus = false
 generatorstatus = false
 serverAddresse = "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/"
 versionTyp = "master/"
+Sprache = ""
 
 dofile("wither/sicherNachNeustart.lua")
 
@@ -19,7 +20,7 @@ function schreibSicherungsdatei()
   f:close ()
 end
 
-if Sprache == "" or Sprache == nil then
+if Sprache == "" then
   print("Sprache? / Language? Deutsch / English\n")
   antwortFrageSprache = io.read()
   if string.lower(antwortFrageSprache) == "deutsch" or string.lower(antwortFrageSprache) == "english" then
@@ -31,7 +32,7 @@ if Sprache == "" or Sprache == nil then
   print("")
 end
 
-if Sprache == "" or Sprache == nil then
+if Sprache == "" then
   Sprache = "deutsch"
 end
 
