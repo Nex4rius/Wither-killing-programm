@@ -195,7 +195,7 @@ function WaitForNetherStar()
           inv.suckFromSlot(3, i)
           NetherStar = NetherStar + 1
           print(AnzahlNetherStar .. NetherStar)
-          writeSaveFile()
+          schreibSicherungsdatei()
           for j = 1, inv.getInventorySize(0) do
             inv.dropIntoSlot(0, j)
           end
