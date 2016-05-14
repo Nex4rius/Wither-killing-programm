@@ -27,13 +27,10 @@ if Sprache == "" then
     Sprache = string.lower(antwortFrageSprache)
   else
     print("\nUnbekannte Eingabe\nStandardeinstellung = deutsch")
+    Sprache = "deutsch"
   end
   schreibSicherungsdatei()
   print("")
-end
-
-if Sprache == "" then
-  Sprache = "deutsch"
 end
 
 dofile("wither/sprache/" .. Sprache .. ".lua")
