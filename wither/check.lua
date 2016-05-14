@@ -26,14 +26,16 @@ if Sprache == "" or Sprache == nil then
     Sprache = string.lower(antwortFrageSprache)
   else
     print("\nUnbekannte Eingabe\nStandardeinstellung = deutsch")
-    Sprache = "deutsch"
   end
   schreibSicherungsdatei()
   print("")
 end
 
-dofile("wither/sprache/" .. Sprache .. ".lua")
+if Sprache == "" or Sprache == nil then
+  Sprache = "deutsch"
+end
 
+dofile("wither/sprache/" .. Sprache .. ".lua")
 
 function checkKomponenten()
   print(pruefeKomponenten)
