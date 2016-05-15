@@ -139,5 +139,6 @@ if checkKomponenten() == true then
       end
     end
   end
+  print(laden)
   dofile("wither/wither.lua")
 end
