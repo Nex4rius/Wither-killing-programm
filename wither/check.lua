@@ -123,7 +123,7 @@ if checkKomponenten() == true then
     elseif installieren == nil then
       print(aktualisierenFrage)
       antwortFrage = io.read()
-      if string.lower(antwortFrage) == "ja" or string.lower(antwortFrage) == "j" or string.lower(antwortFrage) == "yes" or string.lower(antwortFrage) == "y" then
+      if string.lower(antwortFrage) == ja then
         print(aktualisierenJa)
         update()
       elseif antwortFrage == "beta" then
