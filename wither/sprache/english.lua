@@ -1,3 +1,4 @@
+-- von DarknessShadow
 pruefeKomponenten         = "Checking Components\n"
 chunkloaderOK             = "- ChunkLoader          ok (optional)"
 chunkloaderFehlt          = "- ChunkLoader          missing (optional)"
