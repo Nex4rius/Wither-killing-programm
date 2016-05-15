@@ -11,6 +11,8 @@ serverAddresse = "https://raw.githubusercontent.com/DarknessShadow/Wither-killin
 versionTyp = "master/"
 Sprache = ""
 
+ox.execute("del wither/sprache.lua")
+
 dofile("wither/sicherNachNeustart.lua")
 
 function schreibSicherungsdatei()
@@ -79,7 +81,9 @@ function update()
   print("")
   os.execute("wget -f " .. Pfad .. "wither/check.lua wither/check.lua")
   print("")
-  os.execute("wget -f " .. Pfad .. "wither/sprache.lua wither/sprache.lua")
+  os.execute("wget -f " .. Pfad .. "wither/sprache.lua wither/sprache/deutsch.lua")
+  print("")
+  os.execute("wget -f " .. Pfad .. "wither/sprache.lua wither/sprache/english.lua")
   print("")
   os.execute("wget " .. Pfad .. "wither/sicherNachNeustart.lua wither/sicherNachNeustart.lua")
   print("")
