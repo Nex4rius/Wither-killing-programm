@@ -18,7 +18,7 @@ dofile("wither/sicherNachNeustart.lua")
 function schreibSicherungsdatei()
   f = io.open ("wither/sicherNachNeustart.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
-  f:write('Sprache = "' .. Sprache .. '" -- Deutsch / English\n')
+  f:write('Sprache = "' .. string.lower(Sprache) .. '" -- Deutsch / English\n')
   f:close ()
 end
 
