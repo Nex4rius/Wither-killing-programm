@@ -1,4 +1,4 @@
-version = "2.2.1"
+version = "2.2.2"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -9,30 +9,30 @@ chunkloaderstatus = false
 generatorstatus = false
 serverAddresse = "https://raw.githubusercontent.com/DarknessShadow/Wither-killing-programm/"
 versionTyp = "master/"
+Sprache = ""
+
+ox.execute("del wither/sprache.lua")
 
 dofile("wither/sicherNachNeustart.lua")
 
 function schreibSicherungsdatei()
   f = io.open ("wither/sicherNachNeustart.lua", "w")
   f:write('NetherStar = ' .. NetherStar .. '\n')
-  f:write('Sprache = "' .. Sprache .. '" -- Deutsch / English\n')
+  f:write('Sprache = "' .. string.lower(Sprache) .. '" -- Deutsch / English\n')
   f:close ()
 end
 
-if Sprache == "" or Sprache == nil then
+if Sprache == "" then
   print("Sprache? / Language? Deutsch / English\n")
   antwortFrageSprache = io.read()
   if string.lower(antwortFrageSprache) == "deutsch" or string.lower(antwortFrageSprache) == "english" then
     Sprache = string.lower(antwortFrageSprache)
   else
     print("\nUnbekannte Eingabe\nStandardeinstellung = deutsch")
+    Sprache = "deutsch"
   end
   schreibSicherungsdatei()
   print("")
-end
-
-if Sprache == "" or Sprache == nil then
-  Sprache = "deutsch"
 end
 
 dofile("wither/sprache/" .. Sprache .. ".lua")
@@ -75,16 +75,12 @@ end
 function update()
   fs.makeDirectory("/wither")
   Pfad = serverAddresse .. versionTyp
-  os.execute("wget -f " .. Pfad .. "autorun.lua autorun.lua")
-  print("")
-  os.execute("wget -f " .. Pfad .. "wither/wither.lua wither/wither.lua")
-  print("")
-  os.execute("wget -f " .. Pfad .. "wither/check.lua wither/check.lua")
-  print("")
-  os.execute("wget -f " .. Pfad .. "wither/sprache.lua wither/sprache.lua")
-  print("")
-  os.execute("wget " .. Pfad .. "wither/sicherNachNeustart.lua wither/sicherNachNeustart.lua")
-  print("")
+  os.execute("wget -f " .. Pfad .. "autorun.lua autorun.lua") print("")
+  os.execute("wget -f " .. Pfad .. "wither/wither.lua wither/wither.lua") print("")
+  os.execute("wget -f " .. Pfad .. "wither/check.lua wither/check.lua") print("")
+  os.execute("wget -f " .. Pfad .. "wither/sprache.lua wither/sprache/deutsch.lua") print("")
+  os.execute("wget -f " .. Pfad .. "wither/sprache.lua wither/sprache/english.lua") print("")
+  os.execute("wget " .. Pfad .. "wither/sicherNachNeustart.lua wither/sicherNachNeustart.lua") print("")
   os.execute("reboot")
 end
 
@@ -117,18 +113,17 @@ end
 if checkKomponenten() == true then
   if internet == true then
     print(derzeitigeVersion .. version .. verfuegbareVersion .. checkServerVersion())
-    if checkServerVersion() == checkBetaServerVersion() then
-    else
+    if checkServerVersion() == checkBetaServerVersion() then else
       print(betaVersion .. checkBetaServerVersion())
     end
     if version == checkServerVersion() and version == checkBetaServerVersion() then
     elseif installieren == nil then
       print(aktualisierenFrage)
       antwortFrage = io.read()
-      if antwortFrage == "ja" or antwortFrage == "j" or antwortFrage == "yes" or antwortFrage == "y" then
+      if string.lower(antwortFrage) == ja then
         print(aktualisierenJa)
         update()
-      elseif antwortFrage == "test" or antwortFrage == "beta" then
+      elseif antwortFrage == "beta" then
         versionTyp = "beta/"
         print(aktualisierenBeta)
         update()
@@ -137,5 +132,6 @@ if checkKomponenten() == true then
       end
     end
   end
+  print(laden)
   dofile("wither/wither.lua")
 end

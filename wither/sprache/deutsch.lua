@@ -1,3 +1,4 @@
+-- von DarknessShadow
 pruefeKomponenten         = "Pruefe Komponenten\n"
 chunkloaderOK             = "- ChunkLoader          ok (optional)"
 chunkloaderFehlt          = "- ChunkLoader          fehlt (optional)"
@@ -23,3 +24,5 @@ materialFehlt             = "Materialien fehlen warte 5min"
 ZauberstabFehlt           = "Zauberstab fehlt"
 ZauberstabFehltwarteChunk = "Warte 1min - Chunkloader Aus"
 ZauberstabFehltwarte      = "Warte 1min"
+laden                     = "\nLaden..."
+ja                        = "ja"
