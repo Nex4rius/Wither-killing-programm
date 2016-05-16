@@ -116,7 +116,7 @@ if checkKomponenten() == true then
     if checkServerVersion() == checkBetaServerVersion() then else
       print(betaVersion .. checkBetaServerVersion())
     end
-    print("\n" .. NetherStarName .. NetherStar .. "\n")
+    print("\n" .. AnzahlNetherStar .. NetherStar .. "\n")
     if version == checkServerVersion() and version == checkBetaServerVersion() then
     elseif installieren == nil then
       print(aktualisierenFrage)
