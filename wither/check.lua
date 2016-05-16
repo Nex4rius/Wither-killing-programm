@@ -1,4 +1,4 @@
-version = "2.2.2"
+version = "2.2.3"
 component = require("component")
 sides = require("sides")
 term = require("term")
@@ -11,7 +11,7 @@ serverAddresse = "https://raw.githubusercontent.com/DarknessShadow/Wither-killin
 versionTyp = "master/"
 Sprache = ""
 
-ox.execute("del wither/sprache.lua")
+os.execute("del wither/sprache.lua")
 
 dofile("wither/sicherNachNeustart.lua")
 
@@ -116,6 +116,7 @@ if checkKomponenten() == true then
     if checkServerVersion() == checkBetaServerVersion() then else
       print(betaVersion .. checkBetaServerVersion())
     end
+    print("\n" .. NetherStarName .. NetherStar .. "\n")
     if version == checkServerVersion() and version == checkBetaServerVersion() then
     elseif installieren == nil then
       print(aktualisierenFrage)
