@@ -11,7 +11,7 @@ serverAddresse = "https://raw.githubusercontent.com/DarknessShadow/Wither-killin
 versionTyp = "master/"
 Sprache = ""
 
-ox.execute("del wither/sprache.lua")
+os.execute("del wither/sprache.lua")
 
 dofile("wither/sicherNachNeustart.lua")
 
